@@ -4,6 +4,7 @@
 
     <main>
       <router-view />
+      <p>hello</p>
     </main>
 
     <Footer/>
