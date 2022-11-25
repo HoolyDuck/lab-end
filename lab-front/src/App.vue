@@ -3,7 +3,7 @@
     <Header/>
 
     <main>
-      <router-view />
+      <router-view/>
     </main>
 
     <Footer/>
@@ -16,7 +16,7 @@ import Header from './components/layouts/Header.vue'
 import Footer from './components/layouts/Footer.vue'
 
 export default defineComponent({
-  components:{
+  components: {
     Header,
     Footer,
   }
