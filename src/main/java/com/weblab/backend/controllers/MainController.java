@@ -1,4 +1,4 @@
-package com.weblab.backend.conrollers;
+package com.weblab.backend.controllers;
 
 import org.springframework.stereotype.Controller;
 
