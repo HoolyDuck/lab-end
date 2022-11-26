@@ -4,8 +4,6 @@
 
     <main>
       <router-view />
-      <p>hello</p>
-      <p>danylo xddddd</p>
     </main>
 
     <Footer/>
