@@ -4,6 +4,8 @@
       <th v-for="col in columns">
         {{ col }}
       </th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </table>
 </template>
