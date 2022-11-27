@@ -7,6 +7,11 @@
       <th>Edit</th>
       <th>Delete</th>
     </tr>
+    <tr v-for="row in rows">
+      <td v-for="data in row"> {{ data }}}</td>
+      <td><button>Edit</button></td>
+      <td><button>Delete</button></td>
+    </tr>
   </table>
 </template>
 
@@ -15,7 +20,11 @@ export default {
   name: "Table",
 
   props: {
-    columns: Array
+    columns: Array,
+    rows: {
+      default: [],
+      type: Array
+    }
   }
 }
 </script>
