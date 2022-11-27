@@ -8,7 +8,7 @@
       <th>Delete</th>
     </tr>
     <tr v-for="row in rows">
-      <td v-for="data in row"> {{ data }}}</td>
+      <td v-for="data in row" v-bind:key="data.id"> {{ data }}</td>
       <td><button>Edit</button></td>
       <td><button>Delete</button></td>
     </tr>
