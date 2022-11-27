@@ -1,24 +1,26 @@
 package com.weblab.backend.models;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
-//@Table(name="students")
+@Table(name="students")
 @Setter
 @Getter
-@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class Students {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-//    @Column(name = "fullname", nullable = false)
-    private String fullname;
+    @Column(name = "name", nullable = false)
+    private String name;
+    @Column(name = "surname", nullable = false)
+    private String surname;
     @ManyToOne(optional = false)
-    private Groups groupid;
-    //Далі придумаємо
+    @JoinColumn(name = "groupid", referencedColumnName = "id", nullable = false)
+    private Groups group;
+    public Students() {
+
+    }
 }
