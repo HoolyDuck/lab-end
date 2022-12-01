@@ -16,15 +16,15 @@ public class Schedules {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToMany
-    @JoinColumn(name = "tesachersid", referencedColumnName = "id", nullable = false)
-    private Set<Teachers> teachers;
-    @ManyToMany
+    @ManyToOne
+    @JoinColumn(name = "teachersid", referencedColumnName = "id", nullable = false)
+    private Teachers teachersid;
+    @ManyToOne
     @JoinColumn(name = "groupsid", referencedColumnName = "id", nullable = false)
-    private Set<Groups> groups;
-    @ManyToMany
+    private Groups groups;
+    @ManyToOne
     @JoinColumn(name = "disciplinesid", referencedColumnName = "id", nullable = false)
-    private Set<Disciplines> disciplines;
+    private Disciplines disciplines;
     @Column(name = "date", nullable = false)
     private Date date;
 
