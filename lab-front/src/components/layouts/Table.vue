@@ -19,7 +19,9 @@
         </button>
       </td>
       <td>
-        <button><router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link></button>
+        <button>
+          <router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link>
+        </button>
       </td>
     </tr>
   </table>

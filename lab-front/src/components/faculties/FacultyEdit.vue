@@ -26,8 +26,6 @@ export default {
       FacultyService.updateFaculty(this.faculty, this.$route.params.id)
     }
   },
-
-
 }
 </script>
 
