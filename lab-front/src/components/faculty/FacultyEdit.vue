@@ -23,7 +23,7 @@ export default {
   }),
   methods: {
     updateFaculty() {
-      FacultyService.updateFaculty(this.faculty, this.$route.params.id).then((response) => (console.log(response)))
+      FacultyService.updateFaculty(this.faculty, this.$route.params.id)
     }
   },
 

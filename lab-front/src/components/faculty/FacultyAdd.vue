@@ -26,7 +26,7 @@ export default {
   }),
   methods: {
     addFaculty() {
-      FacultyService.addFaculty(this.faculty).then((response) => (console.log(response)))
+      FacultyService.addFaculty(this.faculty)
     }
   }
 }
