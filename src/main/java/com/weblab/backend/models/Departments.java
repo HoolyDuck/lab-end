@@ -24,7 +24,4 @@ public class Departments {
     public Departments() {
 
     }
-
-    public Departments(Optional<Departments> byId) {
-    }
 }
