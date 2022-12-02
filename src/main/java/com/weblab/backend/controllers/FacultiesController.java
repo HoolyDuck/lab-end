@@ -6,7 +6,6 @@ import com.weblab.backend.repositories.FacultiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @CrossOrigin("http://127.0.0.1:5173")
@@ -20,7 +19,7 @@ public class FacultiesController {
         this.facultiesRepository = facultiesRepository;
     }
 
-    @GetMapping("all")
+    @GetMapping("")
     public Iterable<Faculties> getAllFaculties() {
         return facultiesRepository.findAll();
     }

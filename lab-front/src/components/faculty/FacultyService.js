@@ -4,7 +4,7 @@ const FACULTY_API_URL = "http://localhost:8080/api/faculties"
 
 class FacultyService {
     getAllFaculties() {
-        return axios.get(FACULTY_API_URL + '/all')
+        return axios.get(FACULTY_API_URL)
     };
 
     addFaculty(faculty) {
@@ -18,7 +18,6 @@ class FacultyService {
     deleteFaculty(id) {
         return axios.delete(FACULTY_API_URL + '/' + id)
     }
-
 }
 
 export default new FacultyService()
