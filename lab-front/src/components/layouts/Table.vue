@@ -8,14 +8,27 @@
       <th>Delete</th>
     </tr>
     <tr v-for="row in rows">
-      <td v-for="data in row" v-bind:key="data.id"> {{ data }}</td>
-      <td><button>Edit</button></td>
-      <td><button>Delete</button></td>
+
+      <td v-for="data in row" v-bind:key="data.id">
+        {{ data }}
+      </td>
+
+      <td>
+        <button>
+          <router-link :to="'/' + entity + '/edit/' + row.id">Edit</router-link>
+        </button>
+      </td>
+      <td>
+        <button><router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link></button>
+      </td>
     </tr>
   </table>
+
 </template>
 
 <script>
+
+
 export default {
   name: "Table",
 
@@ -24,9 +37,13 @@ export default {
     rows: {
       default: [],
       type: Array
-    }
+    },
+    entity: String
   }
+
 }
+
+
 </script>
 
 <style scoped>
