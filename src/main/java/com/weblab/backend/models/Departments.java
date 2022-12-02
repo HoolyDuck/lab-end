@@ -3,6 +3,8 @@ package com.weblab.backend.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Optional;
+
 @Entity
 @Table(name="departments")
 @Setter
