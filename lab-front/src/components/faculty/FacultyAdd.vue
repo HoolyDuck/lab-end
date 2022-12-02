@@ -1,12 +1,12 @@
 <template>
   <div class="input-text">
     <p>Name</p>
-    <input type="text" name="name" v-model="faculty.name">
+    <input type="text" v-model="faculty.name">
   </div>
 
   <div class="input-text">
     <p>University</p>
-    <input type="text" name="university" v-model="faculty.university">
+    <input type="text" v-model="faculty.university">
   </div>
 
 
@@ -19,7 +19,10 @@ export default {
 
   name: "FacultyAdd",
   data: () => ({
-    faculty: {}
+    faculty: {
+      name: "",
+      university: ""
+    }
   }),
   methods: {
     addFaculty() {
