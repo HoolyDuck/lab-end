@@ -5,6 +5,7 @@ import Faculty from "../components/faculty/Faculty.vue";
 import FacultyAdd from "../components/faculty/FacultyAdd.vue";
 import FacultyEdit from "../components/faculty/FacultyEdit.vue";
 import FacultyTable from "../components/faculty/FacultyTable.vue";
+import FacultyDelete from "../components/faculty/FacultyDelete.vue";
 
 const routes = [
     {
@@ -20,8 +21,8 @@ const routes = [
         component: Faculty,
         children: [
             {
-              path: '',
-              component: FacultyTable
+                path: '',
+                component: FacultyTable
             },
 
             {
@@ -31,6 +32,10 @@ const routes = [
             {
                 path: 'edit/:id',
                 component: FacultyEdit
+            },
+            {
+                path: 'delete/:id',
+                component: FacultyDelete
             }
         ]
     }

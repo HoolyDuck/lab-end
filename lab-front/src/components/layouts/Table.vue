@@ -19,7 +19,7 @@
         </button>
       </td>
       <td>
-        <button>Delete</button>
+        <button><router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link></button>
       </td>
     </tr>
   </table>
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: "Table",
 
@@ -38,7 +40,10 @@ export default {
     },
     entity: String
   }
+
 }
+
+
 </script>
 
 <style scoped>
