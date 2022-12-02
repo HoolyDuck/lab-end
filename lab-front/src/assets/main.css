@@ -33,3 +33,9 @@ a,
     padding: 0 2rem;
   }
 }
+
+.input-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
