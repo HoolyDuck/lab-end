@@ -3,6 +3,8 @@ package com.weblab.backend.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Optional;
+
 @Entity
 @Table(name="departments")
 @Setter
@@ -21,5 +23,8 @@ public class Departments {
 
     public Departments() {
 
+    }
+
+    public Departments(Optional<Departments> byId) {
     }
 }

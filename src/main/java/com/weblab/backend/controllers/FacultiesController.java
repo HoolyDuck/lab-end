@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("http://127.0.0.1:5173/")
-@RequestMapping("api/faculties")
+@RequestMapping("/api/faculties")
 public class FacultiesController {
 
     private final FacultiesRepository facultiesRepository;
@@ -23,7 +23,7 @@ public class FacultiesController {
         this.facultiesRepository = facultiesRepository;
     }
 
-    @GetMapping("all")
+    @GetMapping("/all")
     public Iterable<Faculties> getAllFaculties() {
         return facultiesRepository.findAll();
     }
