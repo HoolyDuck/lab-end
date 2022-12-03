@@ -24,6 +24,7 @@ const routes = [
                 path: '',
                 component: FacultyTable
             },
+            { path: '/:pathMatch(.*)*', name: 'not-found', redirect: '/' },
 
             {
                 path: 'add',
@@ -38,7 +39,7 @@ const routes = [
                 component: FacultyDelete
             }
         ]
-    }
+    },
 ]
 
 export default () => createRouter({

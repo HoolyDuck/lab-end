@@ -1,7 +1,7 @@
 <template>
 <p>Are you sure?</p>
   <button @click="deleteFaculty">Yes</button>
-  <button>No</button>
+  <button><router-link to="/faculty">No</router-link></button>
 </template>
 
 <script>
@@ -12,6 +12,7 @@ export default {
   methods: {
     deleteFaculty() {
       FacultyService.deleteFaculty(this.$route.params.id)
+      this.$router.push('/faculty')
     }
   },
 }

@@ -34,7 +34,7 @@ public class FacultiesController {
         return facultiesRepository.findById(id)
                 .map(faculty -> {
                     faculty.setName(newFaculty.getName());
-                    faculty.setShortName(newFaculty.getShortName());
+                    faculty.setShort_name(newFaculty.getShort_name());
                     return facultiesRepository.save(faculty);
                 })
                 .orElseGet(() -> {
