@@ -15,8 +15,8 @@ public class Faculties {
     private long id;
     @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "university")
-    private String university;
+    @Column(name = "short_name")
+    private String shortName;
     public Faculties() {
 
     }

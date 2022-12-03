@@ -17,6 +17,11 @@ public class Teachers {
     private String name;
     @Column(name = "surname", nullable = false)
     private String surname;
+    @Column(name = "email", nullable = false)
+    private String email;
+    @Column(name = "phone", nullable = false)
+    private String phone;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false)
     private Departments department;

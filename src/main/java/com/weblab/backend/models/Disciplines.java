@@ -16,10 +16,6 @@ public class Disciplines {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "tesacherid", referencedColumnName = "id", nullable = false)
-    private Teachers teacher;
-
     public Disciplines() {
 
     }

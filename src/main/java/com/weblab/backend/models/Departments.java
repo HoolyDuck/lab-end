@@ -17,8 +17,11 @@ public class Departments {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
+    @Column(name = "short_name", nullable = false, unique = true)
+    private String shortName;
+
     @ManyToOne()
-    @JoinColumn(name = "facultyid", referencedColumnName = "id")
+    @JoinColumn(name = "faculty_id", referencedColumnName = "id")
     private Faculties faculty;
 
     public Departments() {
