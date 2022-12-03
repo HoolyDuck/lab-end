@@ -1,11 +1,11 @@
 import {createRouter, createWebHistory} from 'vue-router/dist/vue-router.esm-bundler'
 import Home from '../components/Home.vue'
 import Test from '../components/Test.vue'
-import Faculty from "../components/faculty/Faculty.vue";
-import FacultyAdd from "../components/faculty/FacultyAdd.vue";
-import FacultyEdit from "../components/faculty/FacultyEdit.vue";
-import FacultyTable from "../components/faculty/FacultyTable.vue";
-import FacultyDelete from "../components/faculty/FacultyDelete.vue";
+import Faculty from "../components/faculties/Faculty.vue";
+import FacultyAdd from "../components/faculties/FacultyAdd.vue";
+import FacultyEdit from "../components/faculties/FacultyEdit.vue";
+import FacultyTable from "../components/faculties/FacultyTable.vue";
+import FacultyDelete from "../components/faculties/FacultyDelete.vue";
 
 const routes = [
     {

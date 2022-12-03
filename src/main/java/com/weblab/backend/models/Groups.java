@@ -13,14 +13,15 @@ public class Groups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false)
-    private Departments department;
-    @Column(name = "speciality", nullable = false)
-    private String speciality;
-    @Column(name = "number", nullable = false)
-    private int number;
 
+    @Column(name = "name", nullable = false)
+    private String name;
+    @Column(name = "course", nullable = false)
+    private Long course;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "department_id", referencedColumnName = "id", nullable = false)
+    private Departments department;
     public Groups() {
 
     }

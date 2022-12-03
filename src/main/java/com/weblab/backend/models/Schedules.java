@@ -16,17 +16,25 @@ public class Schedules {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @ManyToOne
-    @JoinColumn(name = "teachersid", referencedColumnName = "id", nullable = false)
-    private Teachers teachersid;
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id", nullable = false)
+    private Teachers teacherId;
     @ManyToOne
-    @JoinColumn(name = "groupsid", referencedColumnName = "id", nullable = false)
-    private Groups groups;
+    @JoinColumn(name = "group_id", referencedColumnName = "id", nullable = false)
+    private Groups groupId;
     @ManyToOne
-    @JoinColumn(name = "disciplinesid", referencedColumnName = "id", nullable = false)
-    private Disciplines disciplines;
-    @Column(name = "date", nullable = false)
-    private Date date;
+    @JoinColumn(name = "discipline_id", referencedColumnName = "id", nullable = false)
+    private Disciplines disciplineId;
+    @Column(name = "time", nullable = false)
+    private String time;
+
+    @Column(name = "classroom", nullable = false)
+    private String classroom;
+
 
     public Schedules() {
 

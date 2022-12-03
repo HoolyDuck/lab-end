@@ -29,7 +29,6 @@ public class DisciplinesController {
         return disciplinesRepository.findById(id).
                 map(discipline -> {
                     discipline.setName(newDiscipline.getName());
-                    discipline.setTeacher(newDiscipline.getTeacher());
                     return disciplinesRepository.save(discipline);
                 })
                 .orElseGet(() ->{

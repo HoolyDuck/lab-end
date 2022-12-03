@@ -27,10 +27,12 @@ public class SchedulesController {
     public Schedules update_schedule(@RequestBody Schedules newSchedule, @PathVariable Long id){
         return schedulesRepository.findById(id)
                 .map(schedule -> {
-                    schedule.setDate(newSchedule.getDate());
-                    schedule.setGroups(newSchedule.getGroups());
-                    schedule.setDisciplines(newSchedule.getDisciplines());
-                    schedule.setTeachersid(newSchedule.getTeachersid());
+                    schedule.setTime(newSchedule.getTime());
+                    schedule.setGroupId(newSchedule.getGroupId());
+                    schedule.setDisciplineId(newSchedule.getDisciplineId());
+                    schedule.setTeacherId(newSchedule.getTeacherId());
+                    schedule.setName(newSchedule.getName());
+                    schedule.setClassroom(newSchedule.getClassroom());
                     return schedulesRepository.save(schedule);
                 }).orElseGet(() ->{
                     newSchedule.setId(id);

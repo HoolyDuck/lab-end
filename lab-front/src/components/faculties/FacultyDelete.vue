@@ -11,7 +11,7 @@ export default {
   name: "FacultyDelete",
   methods: {
     deleteFaculty() {
-      FacultyService.deleteFaculty(this.$route.params.id).then((response) => (console.log(response)))
+      FacultyService.deleteFaculty(this.$route.params.id)
     }
   },
 }

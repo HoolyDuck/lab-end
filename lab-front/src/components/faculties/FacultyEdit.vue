@@ -10,22 +10,22 @@
   </div>
 
 
-  <button @click="addFaculty">Add</button>
+  <button @click="updateFaculty">Update</button>
 </template>
 
 <script>
 import FacultyService from "./FacultyService";
 export default {
 
-  name: "FacultyAdd",
+  name: "FacultyEdit",
   data: () => ({
     faculty: {}
   }),
   methods: {
-    addFaculty() {
-      FacultyService.addFaculty(this.faculty).then((response) => (console.log(response)))
+    updateFaculty() {
+      FacultyService.updateFaculty(this.faculty, this.$route.params.id)
     }
-  }
+  },
 }
 </script>
 
