@@ -18,10 +18,10 @@ public class Departments {
     private String name;
 
     @Column(name = "short_name", nullable = false, unique = true)
-    private String shortName;
+    private String short_name;
 
-    @ManyToOne()
-    @JoinColumn(name = "faculty_id", referencedColumnName = "id")
+    @ManyToOne
+    @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false)
     private Faculties faculty;
 
     public Departments() {

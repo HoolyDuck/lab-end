@@ -9,7 +9,7 @@
     </tr>
     <tr v-for="row in rows">
 
-      <td v-for="data in row" v-bind:key="data.id">
+      <td v-for="data in row" >
         {{ data }}
       </td>
 

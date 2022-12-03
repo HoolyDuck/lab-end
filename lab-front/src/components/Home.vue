@@ -4,6 +4,7 @@
     <router-link to="/">Home</router-link>
     <router-link to="/test">Test</router-link>
     <router-link to="/faculty">Faculty</router-link>
+    <router-link to="/department">Department</router-link>
   </div>
 </template>
 

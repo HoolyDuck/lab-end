@@ -6,6 +6,10 @@ import FacultyAdd from "../components/faculties/FacultyAdd.vue";
 import FacultyEdit from "../components/faculties/FacultyEdit.vue";
 import FacultyTable from "../components/faculties/FacultyTable.vue";
 import FacultyDelete from "../components/faculties/FacultyDelete.vue";
+import DepartmentTable from "../components/departments/DepartmentTable.vue";
+import DepartmentAdd from "../components/departments/DepartmentAdd.vue";
+import DepartmentEdit from "../components/departments/DepartmentEdit.vue";
+import DepartmentDelete from "../components/departments/DepartmentDelete.vue";
 
 const routes = [
     {
@@ -24,7 +28,6 @@ const routes = [
                 path: '',
                 component: FacultyTable
             },
-            { path: '/:pathMatch(.*)*', name: 'not-found', redirect: '/' },
 
             {
                 path: 'add',
@@ -40,6 +43,30 @@ const routes = [
             }
         ]
     },
+    {
+        path: '/department',
+        component: Faculty,
+        children: [
+            {
+                path: '',
+                component: DepartmentTable
+            },
+
+            {
+                path: 'add',
+                component: DepartmentAdd
+            },
+            {
+                path: 'edit/:id',
+                component: DepartmentEdit
+            },
+            {
+                path: 'delete/:id',
+                component: DepartmentDelete
+            }
+        ]
+    }
+
 ]
 
 export default () => createRouter({
