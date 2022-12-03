@@ -5,12 +5,13 @@
   </div>
 
   <div class="input-text">
-    <p>University</p>
-    <input type="text" v-model="faculty.university">
+    <p>Short_Name</p>
+    <input type="text" name="short_name" v-model="faculty.short_name">
   </div>
 
 
   <button @click="addFaculty">Add</button>
+  <button><router-link to="/faculty">Back</router-link></button>
 </template>
 
 <script>
@@ -21,12 +22,13 @@ export default {
   data: () => ({
     faculty: {
       name: "",
-      university: ""
+      short_name: ""
     }
   }),
   methods: {
     addFaculty() {
       FacultyService.addFaculty(this.faculty)
+      this.$router.push('/faculty')
     }
   }
 }

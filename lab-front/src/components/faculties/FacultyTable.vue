@@ -1,6 +1,7 @@
 <template>
   <Table :columns="columns" :rows="faculties" entity="faculty"></Table>
   <button><router-link to="/faculty/add">Add</router-link></button>
+  <button><router-link to="/">Back</router-link></button>
 </template>
 
 <script>
@@ -12,7 +13,7 @@ export default {
 
   components: {Table},
   data: () => ({
-    columns: ["ID", "Name", "University"],
+    columns: ["ID", "Name", "Short_Name"],
     faculties: []
   }),
   methods: {
