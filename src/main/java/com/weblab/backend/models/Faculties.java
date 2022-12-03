@@ -16,7 +16,7 @@ public class Faculties {
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "short_name")
-    private String shortName;
+    private String short_name;
     public Faculties() {
 
     }
