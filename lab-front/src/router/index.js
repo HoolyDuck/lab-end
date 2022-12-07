@@ -6,10 +6,11 @@ import FacultyAdd from "../components/faculties/FacultyAdd.vue";
 import FacultyEdit from "../components/faculties/FacultyEdit.vue";
 import FacultyTable from "../components/faculties/FacultyTable.vue";
 import FacultyDelete from "../components/faculties/FacultyDelete.vue";
-import DepartmentTable from "../components/departments/DepartmentTable.vue";
-import DepartmentAdd from "../components/departments/DepartmentAdd.vue";
-import DepartmentEdit from "../components/departments/DepartmentEdit.vue";
-import DepartmentDelete from "../components/departments/DepartmentDelete.vue";
+import Teacher from "../components/teachers/Teacher.vue";
+import TeacherTable from "../components/teachers/TeacherTable.vue";
+import TeacherAdd from "../components/teachers/TeacherAdd.vue";
+import TeacherEdit from "../components/teachers/TeacherEdit.vue";
+import TeacherDelete from "../components/teachers/TeacherDelete.vue";
 
 const routes = [
     {
@@ -28,6 +29,7 @@ const routes = [
                 path: '',
                 component: FacultyTable
             },
+            {path: '/:pathMatch(.*)*', name: 'not-found', redirect: '/'},
 
             {
                 path: 'add',
@@ -44,29 +46,28 @@ const routes = [
         ]
     },
     {
-        path: '/department',
-        component: Faculty,
+        path: '/teacher',
+        component: Teacher,
         children: [
             {
                 path: '',
-                component: DepartmentTable
+                component: TeacherTable
             },
-
             {
                 path: 'add',
-                component: DepartmentAdd
+                component: TeacherAdd
             },
             {
                 path: 'edit/:id',
-                component: DepartmentEdit
+                component: TeacherEdit
             },
             {
                 path: 'delete/:id',
-                component: DepartmentDelete
+                component: TeacherDelete
             }
         ]
-    }
-
+    },
+    {path: '/:pathMatch(.*)', redirect: '/'}
 ]
 
 export default () => createRouter({
