@@ -1,6 +1,6 @@
 package com.weblab.backend.controllers;
 
-import com.weblab.backend.models.Students;
+import com.weblab.backend.entities.Students;
 import com.weblab.backend.repositories.StudentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

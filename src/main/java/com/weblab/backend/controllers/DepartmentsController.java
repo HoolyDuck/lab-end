@@ -1,6 +1,6 @@
 package com.weblab.backend.controllers;
 
-import com.weblab.backend.models.Departments;
+import com.weblab.backend.entities.Departments;
 import com.weblab.backend.repositories.DepartmentsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

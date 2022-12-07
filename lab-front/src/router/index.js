@@ -11,6 +11,11 @@ import TeacherTable from "../components/teachers/TeacherTable.vue";
 import TeacherAdd from "../components/teachers/TeacherAdd.vue";
 import TeacherEdit from "../components/teachers/TeacherEdit.vue";
 import TeacherDelete from "../components/teachers/TeacherDelete.vue";
+import Department from "../components/departments/Department.vue";
+import DepartmentTable from "../components/departments/DepartmentTable.vue";
+import DepartmentAdd from "../components/departments/DepartmentAdd.vue";
+import DepartmentEdit from "../components/departments/DepartmentEdit.vue";
+import DepartmentDelete from "../components/departments/DepartmentDelete.vue";
 
 const routes = [
     {
@@ -45,6 +50,31 @@ const routes = [
             }
         ]
     },
+    {
+        path: '/department',
+        component: Department,
+        children: [
+            {
+                path: '',
+                component: DepartmentTable
+            },
+            {path: '/:pathMatch(.*)*', name: 'not-found', redirect: '/'},
+
+            {
+                path: 'add',
+                component: DepartmentAdd
+            },
+            {
+                path: 'edit/:id',
+                component: DepartmentEdit
+            },
+            {
+                path: 'delete/:id',
+                component: DepartmentDelete
+            }
+        ]
+    },
+
     {
         path: '/teacher',
         component: Teacher,

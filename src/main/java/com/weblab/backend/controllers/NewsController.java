@@ -1,6 +1,6 @@
 package com.weblab.backend.controllers;
 
-import com.weblab.backend.models.News;
+import com.weblab.backend.entities.News;
 import com.weblab.backend.repositories.NewsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

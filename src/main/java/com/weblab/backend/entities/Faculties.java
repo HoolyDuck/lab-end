@@ -1,4 +1,4 @@
-package com.weblab.backend.models;
+package com.weblab.backend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

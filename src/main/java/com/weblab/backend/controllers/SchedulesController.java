@@ -1,6 +1,6 @@
 package com.weblab.backend.controllers;
 
-import com.weblab.backend.models.Schedules;
+import com.weblab.backend.entities.Schedules;
 import com.weblab.backend.repositories.SchedulesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
