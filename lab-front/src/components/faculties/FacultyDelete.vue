@@ -1,7 +1,9 @@
 <template>
-<p>Are you sure?</p>
+  <p>Are you sure?</p>
   <button @click="deleteFaculty">Yes</button>
-  <button><router-link to="/faculty">No</router-link></button>
+  <button>
+    <router-link to="/faculty">No</router-link>
+  </button>
 </template>
 
 <script>

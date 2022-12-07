@@ -1,22 +1,23 @@
-package com.weblab.backend.models;
+package com.weblab.backend.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "disciplines")
+@Table(name="faculties")
 @Setter
 @Getter
 @AllArgsConstructor
 @Builder
-public class Disciplines {
+public class Faculties {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "name", nullable = false)
     private String name;
-
-    public Disciplines() {
+    @Column(name = "short_name")
+    private String short_name;
+    public Faculties() {
 
     }
 }
