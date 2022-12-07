@@ -17,7 +17,7 @@ export default {
   name: "ScheduleTable",
   components: {Table},
   data: () => ({
-    columns: ["ID", "Classroom", "Name", "Time", "Discipline_ID", "Group_ID","Teacher_ID"],
+    columns: ["ID", "Name", "Group_ID", "Teacher_ID", "Discipline_ID", "Time", "Classroom"],
     schedules: []
   }),
   methods: {

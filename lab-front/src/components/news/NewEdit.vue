@@ -11,7 +11,7 @@
 
   <div class="input-text">
     <p>Subject(ID)</p>
-    <input type="text" name="subject" v-model="New.subject.id">
+    <input type="text" name="subject" v-model="New.discipline.id">
   </div>
 
   <button @click="upgradeNew">Upgrade</button>
@@ -30,7 +30,7 @@ export default {
     New: {
       date: "",
       text: "",
-      subject: {
+      discipline: {
         id: 0
       }
     }

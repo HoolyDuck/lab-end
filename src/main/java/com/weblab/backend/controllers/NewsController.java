@@ -32,7 +32,7 @@ public class NewsController {
                 .map(New -> {
                     New.setDate(newNew.getDate());
                     New.setText(newNew.getText());
-                    New.setDepartment(newNew.getDepartment());
+                    New.setDiscipline(newNew.getDiscipline());
                     return newsRepository.save(New);
                 })
                 .orElseGet(() -> {

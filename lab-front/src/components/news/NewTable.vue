@@ -17,12 +17,12 @@ export default {
   name: "NewTable",
   components: {Table},
   data: () => ({
-    columns: ["ID", "Date", "Text", "Subject"],
+    columns: ["ID", "Subject", "Text", "Date"],
     news: []
   }),
   methods: {
     getAllNews() {
-      NewService.getAllNews().then((response) => this.teachers = response.data)
+      NewService.getAllNews().then((response) => this.news = response.data)
     },
   },
   created() {

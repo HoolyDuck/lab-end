@@ -16,8 +16,8 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne(optional = false)
-    @JoinColumn(name = "subject", referencedColumnName = "id", nullable = false)
-    private Departments department;
+    @JoinColumn(name = "subject", referencedColumnName = "id")
+    private Disciplines discipline;
     @Column(name = "text")
     private String text;
     @Column(name = "date", nullable = false)
