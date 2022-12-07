@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin("http://127.0.0.1:5173/")
-@RequestMapping("api/shedules")
+@CrossOrigin("http://localhost:5173")
+@RequestMapping("/api/schedules")
 public class SchedulesController {
     private final SchedulesRepository schedulesRepository;
 

@@ -23,7 +23,7 @@ public class Teachers {
     private String phone;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "departmentid", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "departmentid", referencedColumnName = "id")
     private Departments department;
 
     public Teachers() {

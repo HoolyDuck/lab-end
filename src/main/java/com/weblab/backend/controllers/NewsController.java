@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin("http://127.0.0.1:5173/")
+@CrossOrigin("http://localhost:5173/")
 @RequestMapping("/api/news")
 public class NewsController {
     private final NewsRepository newsRepository;
@@ -32,7 +32,7 @@ public class NewsController {
                 .map(New -> {
                     New.setDate(newNew.getDate());
                     New.setText(newNew.getText());
-                    New.setDepartment(newNew.getDepartment());
+                    New.setDiscipline(newNew.getDiscipline());
                     return newsRepository.save(New);
                 })
                 .orElseGet(() -> {
