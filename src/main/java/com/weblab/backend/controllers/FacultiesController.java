@@ -1,14 +1,14 @@
 package com.weblab.backend.controllers;
 
 
-import com.weblab.backend.models.Faculties;
+import com.weblab.backend.entities.Faculties;
 import com.weblab.backend.repositories.FacultiesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin("http://127.0.0.1:5173")
+@CrossOrigin("http://localhost:5173")
 @RequestMapping("/api/faculties")
 public class FacultiesController {
 
