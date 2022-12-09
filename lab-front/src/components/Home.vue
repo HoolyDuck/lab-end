@@ -4,6 +4,9 @@
     <router-link to="/">Home</router-link>
     <router-link to="/test">Test</router-link>
     <router-link to="/faculty">Faculty</router-link>
+    <router-link to="/department">Departments</router-link>
+    <router-link to="/group">Groups</router-link>
+    <router-link to="/student">Students</router-link>
     <router-link to="/teacher">Teachers</router-link>
     <router-link to="/new">News</router-link>
     <router-link to="/schedule">Schedules</router-link>
