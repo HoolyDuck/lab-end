@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@CrossOrigin("http://localhost:5173")
+@CrossOrigin("http://127.0.0.1:5173/")
 @RequestMapping("/api/faculties")
 public class FacultiesController {
 

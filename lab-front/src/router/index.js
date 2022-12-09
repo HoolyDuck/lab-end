@@ -26,6 +26,20 @@ import NewAdd from "../components/news/NewAdd.vue";
 import NewEdit from "../components/news/NewEdit.vue";
 import NewDelete from "../components/news/NewDelete.vue";
 import New from "../components/news/New.vue";
+import Department from "../components/departments/Department.vue";
+import DepartmentTable from "../components/departments/DepartmentTable.vue";
+import DepartmentAdd from "../components/departments/DepartmentAdd.vue";
+import DepartmentEdit from "../components/departments/DepartmentEdit.vue";
+import DepartmentDelete from "../components/departments/DepartmentDelete.vue";
+import Group from "../components/groups/Group.vue";
+import GroupTable from "../components/groups/GroupTable.vue";
+import GroupAdd from "../components/groups/GroupAdd.vue";
+import GroupEdit from "../components/groups/GroupEdit.vue";
+import GroupDelete from "../components/groups/GroupDelete.vue";
+import StudentAdd from "../components/students/StudentAdd.vue";
+import StudentTable from "../components/students/StudentTable.vue";
+import StudentEdit from "../components/students/StudentEdit.vue";
+import StudentDelete from "../components/students/StudentDelete.vue";
 
 const routes = [
     {
@@ -44,6 +58,8 @@ const routes = [
                 path: '',
                 component: FacultyTable
             },
+            {path: '/:pathMatch(.*)*', name: 'not-found', redirect: '/'},
+
             {
                 path: 'add',
                 component: FacultyAdd
@@ -55,6 +71,52 @@ const routes = [
             {
                 path: 'delete/:id',
                 component: FacultyDelete
+            }
+        ]
+    },
+    {
+        path: '/department',
+        component: Department,
+        children: [
+            {
+                path: '',
+                component: DepartmentTable
+            },
+
+            {
+                path: 'add',
+                component: DepartmentAdd
+            },
+            {
+                path: 'edit/:id',
+                component: DepartmentEdit
+            },
+            {
+                path: 'delete/:id',
+                component: DepartmentDelete
+            }
+        ]
+    },
+    {
+        path: '/group',
+        component: Group,
+        children: [
+            {
+                path: '',
+                component: GroupTable
+            },
+
+            {
+                path: 'add',
+                component: GroupAdd
+            },
+            {
+                path: 'edit/:id',
+                component: GroupEdit
+            },
+            {
+                path: 'delete/:id',
+                component: GroupDelete
             }
         ]
     },
@@ -146,6 +208,32 @@ const routes = [
             }
         ]
     },
+    {
+        path: '/student',
+        component: New,
+        children: [
+            {
+                path: '',
+                component: StudentTable
+            },
+            {
+                path: 'add',
+                component: StudentAdd
+            },
+            {
+                path: 'edit/:id',
+                component: StudentEdit
+            },
+            {
+                path: 'delete/:id',
+                component: StudentDelete
+            }
+        ]
+    },
+
+
+
+
     {path: '/:pathMatch(.*)', redirect: '/'}
 ]
 
