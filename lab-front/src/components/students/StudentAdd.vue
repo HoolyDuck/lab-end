@@ -1,0 +1,52 @@
+<template>
+  <div class="input-text">
+    <p>Name</p>
+    <input type="text" v-model="student.name">
+  </div>
+
+  <div class="input-text">
+    <p>Email</p>
+    <input type="text" v-model="student.email">
+  </div>
+
+  <div class="input-text">
+    <p>Phone</p>
+    <input type="text" v-model="student.phone">
+  </div>
+
+  <div class="input-text">
+    <p>Group ID</p>
+    <input v-model="student.group.id">
+  </div>
+
+
+  <button @click="addStudent">Add</button>
+</template>
+
+<script>
+import StudentService from "./StudentService";
+export default {
+
+  name: "StudentAdd",
+  data: () => ({
+    student: {
+      name: "",
+      email: "",
+      phone: "",
+      group: {
+        id: 0
+      }
+    }
+  }),
+  methods: {
+    addStudent() {
+      StudentService.addStudent(this.student)
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+
+</style>
