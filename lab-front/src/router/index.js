@@ -26,6 +26,8 @@ import NewAdd from "../components/news/NewAdd.vue";
 import NewEdit from "../components/news/NewEdit.vue";
 import NewDelete from "../components/news/NewDelete.vue";
 import New from "../components/news/New.vue";
+import NewsPage from "../components/news/NewsPage.vue";
+import SchedulesPage from "../components/schedules/SchedulesPage.vue";
 
 const routes = [
     {
@@ -99,6 +101,10 @@ const routes = [
             {
                 path: 'delete/:id',
                 component: ScheduleDelete
+            },
+            {
+                path: 'page',
+                component: SchedulesPage
             }
         ]
     },
@@ -143,6 +149,10 @@ const routes = [
             {
                 path: 'delete/:id',
                 component: NewDelete
+            },
+            {
+                path: 'page',
+                component: NewsPage
             }
         ]
     },

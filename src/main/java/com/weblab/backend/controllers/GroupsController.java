@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin("http://127.0.0.1:5173/")
 @RequestMapping("/api/groups")
 public class GroupsController {
     private final GroupsRepository groupsRepository;
