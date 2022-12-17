@@ -1,52 +1,41 @@
 package com.weblab.backend.controllers;
 
-import com.weblab.backend.entities.Departments;
-import com.weblab.backend.repositories.DepartmentsRepository;
+import com.weblab.backend.models.DepartmentModel;
+import com.weblab.backend.services.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@CrossOrigin("http://127.0.0.1:5173/")
 @RequestMapping("/api/departments")
 public class DepartmentsController {
-    private final DepartmentsRepository departmentsRepository;
+    private final DepartmentService departmentService;
 
     @Autowired
-    public DepartmentsController(DepartmentsRepository departmentsRepository) {
-        this.departmentsRepository = departmentsRepository;
+    public DepartmentsController(DepartmentService departmentService) {
+        this.departmentService = departmentService;
     }
 
     @GetMapping("")
-    public Iterable<Departments> getAllDepartments(){
-        return departmentsRepository.findAll();
+    public List<DepartmentModel> getAllDepartments() {
+        return departmentService.getAll();
     }
+
     @PostMapping("")
-    public Departments addDepartment(@RequestBody Departments newDepartment) {
-        return departmentsRepository.save(newDepartment);
+    public void addDepartment(@RequestBody DepartmentModel newDepartment) {
+        departmentService.add(newDepartment);
     }
+
     @PutMapping("{id}")
-    public Departments replaceDepartment(@RequestBody Departments newDepartment, @PathVariable Long id) {
-        return departmentsRepository.findById(id)
-                .map(department -> {
-                    department.setName(newDepartment.getName());
-                    department.setShort_name(newDepartment.getShort_name());
-                    department.setFaculty(newDepartment.getFaculty());
-                    return departmentsRepository.save(department);
-                })
-                .orElseGet(() -> {
-                    newDepartment.setId(id);
-                    return departmentsRepository.save(newDepartment);
-                });
+    public void replaceDepartment(@RequestBody DepartmentModel newDepartment, @PathVariable Long id) {
+        departmentService.update(newDepartment, id);
     }
 
     @DeleteMapping("{id}")
-    void deleteDepartment( @PathVariable Long id) {
-        departmentsRepository.deleteById(id);
+    void deleteDepartment(@PathVariable Long id) {
+        departmentService.delete(id);
     }
-
-
-
-
 
 
 }

@@ -10,7 +10,7 @@
 
   <div class="input-text">
     <p>Faculty ID</p>
-    <input type="number" v-model="department.faculty.id">
+    <input type="number" v-model="department.faculty_id">
   </div>
 
 
@@ -29,9 +29,7 @@ export default {
     department: {
       name: "",
       short_name: "",
-      faculty: {
-        id: 0
-      }
+      faculty_id: 0
     }
   }),
   methods: {
