@@ -4,6 +4,7 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 !**/src/main/**/application.properties
+!**/src/java/com/weblab/backend/configs/MyConfiguration.java
 
 ### STS ###
 .apt_generated
@@ -29,6 +30,7 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+
 
 ### VS Code ###
 .vscode/

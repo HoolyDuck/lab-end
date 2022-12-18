@@ -8,8 +8,10 @@
     <router-link to="/group">Groups</router-link>
     <router-link to="/student">Students</router-link>
     <router-link to="/teacher">Teachers</router-link>
-    <router-link to="/new">News</router-link>
-    <router-link to="/schedule">Schedules</router-link>
+    <router-link to="/new">NewsTable</router-link>
+    <router-link to="/new/page">News</router-link>
+    <router-link to="/schedule/page">Schedules</router-link>
+    <router-link to="/schedule">SchedulesTable</router-link>
     <router-link to="/discipline">Disciplines</router-link>
   </div>
 </template>

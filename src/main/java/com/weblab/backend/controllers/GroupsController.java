@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin("http://127.0.0.1:5173/")
 @RequestMapping("/api/groups")
 public class GroupsController {
     private final GroupsRepository groupsRepository;

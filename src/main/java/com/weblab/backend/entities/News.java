@@ -15,13 +15,14 @@ public class News {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "subject", referencedColumnName = "id")
-    private Disciplines discipline;
+    @Column(name = "title", nullable = false)
+    private String title;
     @Column(name = "text")
     private String text;
     @Column(name = "date", nullable = false)
     private Date date;
+    @Column(name = "img")
+    private String img;
 
     public News() {
 

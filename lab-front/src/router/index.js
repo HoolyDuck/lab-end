@@ -1,3 +1,5 @@
+
+
 import {createRouter, createWebHistory} from 'vue-router/dist/vue-router.esm-bundler'
 import Home from '../components/Home.vue'
 import Test from '../components/Test.vue'
@@ -159,6 +161,10 @@ const routes = [
                 component: ScheduleEdit
             },
             {
+                path: 'page',
+                component: ScheduleAdd
+            },
+            {
                 path: 'delete/:id',
                 component: ScheduleDelete
             }
@@ -201,6 +207,10 @@ const routes = [
             {
                 path: 'edit/:id',
                 component: NewEdit
+            },
+            {
+                path: 'page',
+                component: ScheduleAdd
             },
             {
                 path: 'delete/:id',
