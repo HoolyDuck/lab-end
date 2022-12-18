@@ -1,45 +1,42 @@
 package com.weblab.backend.controllers;
 
 import com.weblab.backend.entities.Schedules;
-import com.weblab.backend.repositories.SchedulesRepository;
+import com.weblab.backend.models.ImprovedScheduleModel;
+import com.weblab.backend.models.ScheduleModel;
+import com.weblab.backend.services.ScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/schedules")
 public class SchedulesController {
-    private final SchedulesRepository schedulesRepository;
+    private final ScheduleService scheduleService;
 
     @Autowired
-    public SchedulesController(SchedulesRepository schedulesRepository) {
-        this.schedulesRepository = schedulesRepository;
+    public SchedulesController(ScheduleService scheduleService) {
+        this.scheduleService = scheduleService;
     }
     @GetMapping("/all")
-    public Iterable<Schedules> getAllSchedules(){
-        return schedulesRepository.findAll();
+    public List<ScheduleModel> getAllSchedules(){
+        return scheduleService.getAllSchedules();
+    }
+    @GetMapping("/all2")
+    public List<ImprovedScheduleModel> getAllSchedules2(){
+        return scheduleService.getAllSchedules2();
     }
     @PostMapping("/add")
-    public Schedules insert_schedule(@RequestBody Schedules newSchedule){
-        return schedulesRepository.save(newSchedule);
+    public void insert_schedule(@RequestBody ScheduleModel newSchedule){
+        scheduleService.insert_schedule(newSchedule);
     }
     @PutMapping("/update/{id}")
-    public Schedules update_schedule(@RequestBody Schedules newSchedule, @PathVariable Long id){
-        return schedulesRepository.findById(id)
-                .map(schedule -> {
-                    schedule.setTime(newSchedule.getTime());
-                    schedule.setGroupId(newSchedule.getGroupId());
-                    schedule.setDisciplineId(newSchedule.getDisciplineId());
-                    schedule.setTeacherId(newSchedule.getTeacherId());
-                    schedule.setName(newSchedule.getName());
-                    schedule.setClassroom(newSchedule.getClassroom());
-                    return schedulesRepository.save(schedule);
-                }).orElseGet(() ->{
-                    newSchedule.setId(id);
-                    return schedulesRepository.save(newSchedule);
-                });
+    public void update_schedule(@RequestBody ScheduleModel newSchedule, @PathVariable Long id){
+        scheduleService.update_schedule(newSchedule, id);
     }
     @DeleteMapping("/delete/{id}")
     public void delete_schedule(@PathVariable Long id){
-        schedulesRepository.deleteById(id);
+        scheduleService.delete_schedule(id);
     }
+
 }

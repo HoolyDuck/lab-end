@@ -7,6 +7,10 @@ class ScheduleService {
         return axios.get(Schedule_API_URL + '/all')
     };
 
+    getAllSchedules2() {
+        return axios.get(Schedule_API_URL + '/all2')
+    };
+
     addSchedule(teacher) {
         return axios.post(Schedule_API_URL + '/add', teacher)
     };
