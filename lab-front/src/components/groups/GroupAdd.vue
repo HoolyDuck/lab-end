@@ -11,7 +11,7 @@
 
   <div class="input-text">
     <p>Department ID</p>
-    <input type="text" v-model="group.department.id">
+    <input type="text" v-model="group.department_id">
   </div>
 
 
@@ -27,9 +27,7 @@ export default {
     group: {
       name: "",
       course: "",
-      department: {
-        id: 0
-      }
+      department_id: 0
     }
   }),
   methods: {

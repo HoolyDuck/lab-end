@@ -12,7 +12,7 @@ export default {
 
   components: {Table},
   data: () => ({
-    columns: ["ID", "Name", "Course", "Department ID"],
+    columns: ["ID",  "Course", "Name","Department ID"],
     groups: []
   }),
   methods: {

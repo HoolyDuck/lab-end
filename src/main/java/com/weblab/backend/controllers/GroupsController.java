@@ -1,47 +1,41 @@
 package com.weblab.backend.controllers;
 
-import com.weblab.backend.entities.Groups;
-import com.weblab.backend.repositories.GroupsRepository;
+import com.weblab.backend.models.GroupModel;
+import com.weblab.backend.services.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/groups")
 public class GroupsController {
-    private final GroupsRepository groupsRepository;
+
+
+    private final GroupService groupService;
 
     @Autowired
-    public GroupsController(GroupsRepository groupsRepository) {
-        this.groupsRepository = groupsRepository;
+    public GroupsController(GroupService groupService) {
+        this.groupService = groupService;
     }
 
     @GetMapping("")
-    public Iterable<Groups> getAllGroups(){
-        return groupsRepository.findAll();
+    public List<GroupModel> getAllGroups() {
+        return groupService.getAll();
     }
 
-
     @PostMapping("")
-    public Groups addGroup(@RequestBody Groups newGroup){
-        return groupsRepository.save(newGroup);
+    public void addGroup(@RequestBody GroupModel newGroup) {
+        groupService.add(newGroup);
     }
 
     @PutMapping("{id}")
-    public Groups updateGroup(@RequestBody Groups newGroup, @PathVariable Long id){
-        return groupsRepository.findById(id).
-                map(group -> {
-                    group.setName(newGroup.getName());
-                    group.setDepartment(newGroup.getDepartment());
-                    group.setCourse(newGroup.getCourse());
-                    return groupsRepository.save(group);
-                })
-                .orElseGet(() ->{
-                    newGroup.setId(id);
-                    return groupsRepository.save(newGroup);
-                });
+    public void updateGroup(@RequestBody GroupModel newGroup, @PathVariable Long id) {
+        groupService.update(newGroup, id);
     }
+
     @DeleteMapping("{id}")
-    public void deleteGroup(@PathVariable Long id){
-        groupsRepository.deleteById(id);
+    public void deleteGroup(@PathVariable Long id) {
+        groupService.deleteById(id);
     }
 }

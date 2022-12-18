@@ -21,7 +21,7 @@ public class Departments {
     private String name;
 
     @Column(name = "short_name", nullable = false, unique = true)
-    private String short_name;
+    private String shortName;
 
     @ManyToOne
     @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false)

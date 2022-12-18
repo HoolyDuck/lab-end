@@ -1,50 +1,43 @@
 package com.weblab.backend.controllers;
 
 
-import com.weblab.backend.entities.Faculties;
-import com.weblab.backend.repositories.FacultiesRepository;
+import com.weblab.backend.models.FacultyModel;
+import com.weblab.backend.services.FacultyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 
 @RestController
 @RequestMapping("/api/faculties")
 public class FacultiesController {
 
-    private final FacultiesRepository facultiesRepository;
+    private final FacultyService facultyService;
 
     @Autowired
-    public FacultiesController(FacultiesRepository facultiesRepository) {
-        this.facultiesRepository = facultiesRepository;
+    public FacultiesController(FacultyService facultyService) {
+        this.facultyService = facultyService;
     }
 
     @GetMapping("")
-    public Iterable<Faculties> getAllFaculties() {
-        return facultiesRepository.findAll();
+    public List<FacultyModel> getAllFaculties() {
+        return facultyService.getAll();
     }
 
     @PostMapping("")
-    public Faculties addFaculty(@RequestBody Faculties newFaculty) {
-        return facultiesRepository.save(newFaculty);
+    public void addFaculty(@RequestBody FacultyModel newFaculty) {
+        facultyService.add(newFaculty);
     }
 
     @PutMapping("{id}")
-    public Faculties replaceFaculty(@RequestBody Faculties newFaculty, @PathVariable Long id) {
-        return facultiesRepository.findById(id)
-                .map(faculty -> {
-                    faculty.setName(newFaculty.getName());
-                    faculty.setShort_name(newFaculty.getShort_name());
-                    return facultiesRepository.save(faculty);
-                })
-                .orElseGet(() -> {
-                    newFaculty.setId(id);
-                    return facultiesRepository.save(newFaculty);
-                });
+    public void updateFaculty(@RequestBody FacultyModel newFaculty, @PathVariable Long id) {
+       facultyService.update(newFaculty, id);
     }
 
     @DeleteMapping("{id}")
     void deleteFaculty( @PathVariable Long id) {
-        facultiesRepository.deleteById(id);
+        facultyService.deleteById(id);
     }
 
 }

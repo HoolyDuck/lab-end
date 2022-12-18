@@ -11,7 +11,7 @@
 
   <div class="input-text">
     <p>Department ID</p>
-    <input type="text" v-model="group.department.id">
+    <input type="text" v-model="group.department_id">
   </div>
 
 

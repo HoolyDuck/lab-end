@@ -19,7 +19,7 @@ public class Faculties {
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "short_name")
-    private String short_name;
+    private String shortName;
 
     @JsonIgnore
     @OneToMany(mappedBy = "faculty", cascade = CascadeType.REMOVE, orphanRemoval = true)
