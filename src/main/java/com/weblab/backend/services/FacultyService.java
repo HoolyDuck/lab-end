@@ -35,7 +35,7 @@ public class FacultyService {
     public void update(FacultyModel facultyModel, Long id) {
         facultiesRepository.findById(id).map(faculty -> {
                     faculty.setName(facultyModel.getName());
-                    faculty.setShort_name(facultyModel.getShortName());
+                    faculty.setShortName(facultyModel.getShortName());
                     return facultiesRepository.save(faculty);
                 })
                 .orElseGet(() -> {

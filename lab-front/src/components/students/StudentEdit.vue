@@ -16,7 +16,7 @@
 
   <div class="input-text">
     <p>Group ID</p>
-    <input v-model="student.group.id">
+    <input v-model="student.group_id">
   </div>
 
 
@@ -33,9 +33,7 @@ export default {
       name: "",
       email: "",
       phone: "",
-      group: {
-        id: 0
-      }
+      group_id: 0
     }
   }),
   methods: {

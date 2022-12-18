@@ -8,14 +8,14 @@ public class FacultyMapper {
     public static Faculties toEntity(FacultyModel facultyModel) {
         return Faculties.builder()
                 .name(facultyModel.getName())
-                .short_name(facultyModel.getShortName())
+                .shortName(facultyModel.getShortName())
                 .build();
     }
 
     public static FacultyModel toModel(Faculties faculties) {
         return FacultyModel.builder()
                 .id(faculties.getId())
-                .shortName(faculties.getShort_name())
+                .shortName(faculties.getShortName())
                 .name(faculties.getName())
                 .build();
     }
