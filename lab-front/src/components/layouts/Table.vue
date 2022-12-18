@@ -1,31 +1,32 @@
 <template>
-  <table>
-    <tr>
-      <th v-for="col in columns">
-        {{ col }}
-      </th>
-      <th>Edit</th>
-      <th>Delete</th>
-    </tr>
-    <tr v-for="row in rows">
+  <div class="crud-table-wrapper">
+    <table class="crud-table">
+      <tr>
+        <th v-for="col in columns">
+          {{ col }}
+        </th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr v-for="row in rows">
 
-      <td v-for="data in row" >
-        {{ data }}
-      </td>
+        <td v-for="data in row">
+          {{ data }}
+        </td>
 
-      <td>
-        <button>
-          <router-link :to="'/' + entity + '/edit/' + row.id">Edit</router-link>
-        </button>
-      </td>
-      <td>
-        <button>
-          <router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link>
-        </button>
-      </td>
-    </tr>
-  </table>
-
+        <td>
+          <button>
+            <router-link :to="'/' + entity + '/edit/' + row.id">Edit</router-link>
+          </button>
+        </td>
+        <td>
+          <button>
+            <router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link>
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
 </template>
 
 <script>
@@ -50,4 +51,34 @@ export default {
 
 <style scoped>
 
+.crud-table-wrapper {
+  overflow-x: auto;
+  border: .1rem solid rgb(75, 75, 75);
+}
+
+
+.crud-table {
+  width: 100%;
+  min-width: 90vw;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+
+  border-collapse: collapse;
+}
+
+.crud-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, .07);
+}
+
+.crud-table td, th {
+  min-width: 40px;
+  max-width: 200px;
+  word-wrap: break-word;
+  text-align: center;
+  padding: .7rem 1rem .7rem 1rem;
+  border-right: .1rem solid rgb(75, 75, 75);
+}
+
+ .crud-table th {
+  font-weight: bold;
+}
 </style>
