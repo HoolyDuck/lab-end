@@ -21,6 +21,8 @@ public class News {
     private String text;
     @Column(name = "date", nullable = false)
     private Date date;
+    @Column(name = "img")
+    private String img;
 
     public News() {
 
