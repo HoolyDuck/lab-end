@@ -10,8 +10,13 @@
   </div>
 
   <div class="input-text">
-    <p>Subject(ID)</p>
-    <input type="text" name="subject" v-model="New.discipline.id">
+    <p>Title</p>
+    <input type="text" name="subject" v-model="New.title">
+  </div>
+
+  <div class="input-text">
+    <p>Title</p>
+    <input type="text" name="subject" v-model="New.img">
   </div>
 
   <button @click="upgradeNew">Upgrade</button>

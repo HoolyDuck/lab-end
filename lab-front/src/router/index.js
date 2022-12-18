@@ -42,6 +42,8 @@ import StudentAdd from "../components/students/StudentAdd.vue";
 import StudentTable from "../components/students/StudentTable.vue";
 import StudentEdit from "../components/students/StudentEdit.vue";
 import StudentDelete from "../components/students/StudentDelete.vue";
+import SchedulesPage from "../components/schedules/SchedulesPage.vue";
+import NewsPage from "../components/news/NewsPage.vue";
 
 const routes = [
     {
@@ -162,7 +164,7 @@ const routes = [
             },
             {
                 path: 'page',
-                component: ScheduleAdd
+                component: SchedulesPage
             },
             {
                 path: 'delete/:id',
@@ -210,7 +212,7 @@ const routes = [
             },
             {
                 path: 'page',
-                component: ScheduleAdd
+                component: NewsPage
             },
             {
                 path: 'delete/:id',

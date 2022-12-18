@@ -16,17 +16,17 @@
 
   <div class="input-text">
     <p>Discipline_Id</p>
-    <input type="text" name="discipline" v-model="schedule.discipline.id">
+    <input type="text" name="department" v-model="schedule.discipline_id">
   </div>
 
   <div class="input-text">
     <p>Teacher_Id</p>
-    <input type="text" name="teacher" v-model="schedule.teacher.id">
+    <input type="text" name="department" v-model="schedule.teacher_id">
   </div>
 
   <div class="input-text">
     <p>Group_Id</p>
-    <input type="text" name="group" v-model="schedule.group.id">
+    <input type="text" name="department" v-model="schedule.group_id">
   </div>
 
   <button @click="upgradeSchedule">Upgrade</button>
@@ -44,15 +44,9 @@ export default {
       classroom: "",
       name: "",
       time: "",
-      discipline:{
-        id:0
-      },
-      teacher:{
-        id:0
-      },
-      group:{
-        id:0
-      }
+      discipline_id:0,
+      teacher_id:0,
+      group_id:0
     }
   }),
   methods: {

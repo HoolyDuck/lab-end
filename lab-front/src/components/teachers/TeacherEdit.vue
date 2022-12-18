@@ -21,8 +21,9 @@
 
   <div class="input-text">
     <p>Department_Id</p>
-    <input type="text" name="department" v-model="teacher.department.id">
+    <input type="text" name="department" v-model="teacher.department_id">
   </div>
+
   <button @click="upgradeTeacher">Update</button>
   <button>
     <router-link to="/teacher">Back</router-link>
@@ -40,9 +41,7 @@ export default {
       name: "",
       phone: "",
       surname: "",
-      department:{
-        id:0
-      }
+      department_id:0
     }
   }),
   methods: {

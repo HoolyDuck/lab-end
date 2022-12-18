@@ -10,8 +10,13 @@
   </div>
 
   <div class="input-text">
-    <p>Subject(ID)</p>
-    <input type="text" name="subject" v-model="New.discipline.id">
+    <p>Title</p>
+    <input type="text" name="subject" v-model="New.title">
+  </div>
+
+  <div class="input-text">
+    <p>Img</p>
+    <input type="text" name="subject" v-model="New.img">
   </div>
 
   <button @click="addNew">Add</button>
@@ -28,9 +33,8 @@ export default {
     New: {
       date:"",
       text:"",
-      discipline:{
-        id:0
-      }
+      title:"",
+      img:""
     }
   }),
   methods: {
