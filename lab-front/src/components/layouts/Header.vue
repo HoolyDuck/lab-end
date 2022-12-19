@@ -2,8 +2,9 @@
   <header>
     <div class="header-part">
     <div class="header-link">Logo</div>
-    <router-link class="header-link" to="/schedule">Schedule</router-link>
-    <router-link class="header-link" to="/new">News</router-link>
+      <router-link class="header-link" to="/">Home</router-link>
+    <router-link class="header-link" to="/schedule/page">Schedule</router-link>
+    <router-link class="header-link" to="/new/page">News</router-link>
     </div>
     <div class="sidebar-menu">
       <div class="burger-button" @click="this.showSidebar=!this.showSidebar">|||</div>
@@ -38,26 +39,30 @@ export default {
     ]
   }),
   methods: () => ({})
-
-
 }
 </script>
-
-
 <style>
 
 header {
+  position: fixed;
   width: 100%;
+  top:0;
+  left: 0;
   display: flex;
   justify-content: space-between;
-
   margin-bottom: 1rem;
   box-shadow: 3px 7px 3px rgba(0, 0, 0, 0.2);
+}
+
+.header-link{
+  padding-left: 24%;
+  padding-right: 24%;
 }
 
 .header-part {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
 }
 
 .header-link {
@@ -81,6 +86,4 @@ header {
 .burger-button:hover {
   background: rgba(32, 178, 100, 0.63);
 }
-
-
 </style>
