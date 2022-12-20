@@ -15,14 +15,10 @@
         </td>
 
         <td>
-          <button>
-            <router-link :to="'/' + entity + '/edit/' + row.id">Edit</router-link>
-          </button>
+            <router-link :to="'/' + entity + '/edit/' + row.id"><i class="fa-solid fa-pen"></i></router-link>
         </td>
         <td>
-          <button>
-            <router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link>
-          </button>
+            <router-link :to="'/' + entity + '/delete/' + row.id"><i class="fa-solid fa-trash link-color-red"></i></router-link>
         </td>
       </tr>
     </table>
@@ -50,6 +46,10 @@ export default {
 </script>
 
 <style scoped>
+
+.link-color-red {
+  color: red;
+}
 
 .crud-table-wrapper {
   overflow-x: auto;
