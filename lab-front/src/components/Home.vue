@@ -1,6 +1,18 @@
 <template>
-  <div class="content">
-    <h1 class="title">Home</h1>
+  <div>
+    <h1>Home</h1>
+    <router-link to="/">Home</router-link>
+    <router-link to="/test">Test</router-link>
+    <router-link to="/faculty">Faculty</router-link>
+    <router-link to="/department">Departments</router-link>
+    <router-link to="/group">Groups</router-link>
+    <router-link to="/student">Students</router-link>
+    <router-link to="/teacher">Teachers</router-link>
+    <router-link to="/new">NewsTable</router-link>
+    <router-link to="/new/page">News</router-link>
+    <router-link to="/schedule/page">Schedules</router-link>
+    <router-link to="/schedule">SchedulesTable</router-link>
+    <router-link to="/discipline">Disciplines</router-link>
   </div>
 </template>
 

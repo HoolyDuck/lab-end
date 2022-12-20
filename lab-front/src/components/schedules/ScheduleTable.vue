@@ -1,7 +1,11 @@
 <template>
   <Table :columns="columns" :rows="schedules" entity="schedule"></Table>
-  <router-link to="/schedule/add"><img class="add_but" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFMCQy3gEyULvSfGBuNMDwuJof_4GCsx42LnCGwAIYT3KrxYPRoN-Sng779xxYlW_Bj2I&usqp=CAU"></router-link>
-  <router-link to="/"><img class="back" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYHt9NT496QIJVyQoZzu2yPJjcp0obnYgIr-irZ-0wreRazh54BvYPTJrW8HbuC93QGc&usqp=CAU"></router-link>
+  <button>
+    <router-link to="/schedule/add">Add</router-link>
+  </button>
+  <button>
+    <router-link to="/">Back</router-link>
+  </button>
 </template>
 
 <script>

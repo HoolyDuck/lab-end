@@ -11,7 +11,7 @@
 
 
   <button @click="updateFaculty">Update</button>
-  <router-link to="/faculty"><img class="back" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWYHt9NT496QIJVyQoZzu2yPJjcp0obnYgIr-irZ-0wreRazh54BvYPTJrW8HbuC93QGc&usqp=CAU"></router-link>
+  <button><router-link to="/faculty">Back</router-link></button>
 </template>
 
 <script>
