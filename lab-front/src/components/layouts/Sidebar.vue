@@ -33,7 +33,7 @@ export default {
 }
 
 .sidebar-link {
-  padding: 1rem;
+  padding: 0.9rem;
   min-width: 10rem;
   box-shadow:  0 2px rgba(0, 0, 0, 0.2);
   text-align: left;
