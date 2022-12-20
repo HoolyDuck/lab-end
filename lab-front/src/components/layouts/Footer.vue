@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import FacultyService from "../faculties/FacultyService";
 
 export default {
   name: "Footer",
