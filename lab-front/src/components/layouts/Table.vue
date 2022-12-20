@@ -15,7 +15,7 @@
         </td>
 
         <td>
-            <router-link :to="'/' + entity + '/edit/' + row.id"><i class="fa-solid fa-pen"></i></router-link>
+            <router-link :to="'/' + entity + '/edit/' + row.id"><i class="fa-solid fa-pen "></i></router-link>
         </td>
         <td>
             <router-link :to="'/' + entity + '/delete/' + row.id"><i class="fa-solid fa-trash link-color-red"></i></router-link>
