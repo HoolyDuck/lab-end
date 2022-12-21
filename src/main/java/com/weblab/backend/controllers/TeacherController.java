@@ -4,6 +4,9 @@ import com.weblab.backend.models.TeacherModel;
 import com.weblab.backend.services.TeacherService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -35,5 +38,15 @@ public class TeacherController {
     @DeleteMapping("/delete/{id}")
     public void delete_teacher(@PathVariable Long id) {
         teacherService.delete_teacher(id);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseBody
+    public ResponseEntity<String> onMethodArgumentNotValidException(
+            MethodArgumentNotValidException e) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(e.getMessage());
     }
 }
