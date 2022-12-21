@@ -16,23 +16,21 @@
           <input type="text" name="short_name" v-model="faculty.short_name">
         </div>
       </div>
-
-      <button class="wide-button" @click="updateFaculty">Edit</button>
-      <router-link to="/faculty">
-        <button class="wide-button button-grey">
-          Back
-        </button>
-      </router-link>
+      <CommitButton @click="updateFaculty"></CommitButton>
+      <BackButton to="/faculty"></BackButton>
     </div>
   </div>
 </template>
 
 <script>
 import FacultyService from "./FacultyService";
+import BackButton from "../layouts/BackButton.vue";
+import CommitButton from "../layouts/CommitButton.vue";
 
 export default {
 
   name: "FacultyEdit",
+  components: {CommitButton, BackButton},
   data: () => ({
     faculty: {}
   }),

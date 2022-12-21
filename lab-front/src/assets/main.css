@@ -59,8 +59,9 @@ a,
     gap: 2rem;
 }
 
-.edit-add-field-wrapper input {
+.edit-add-field-wrapper input{
     min-width: 10rem;
+    max-width: 20rem;
     padding: .5rem;
     border-radius: .3rem;
     border: 2px solid white;
@@ -68,6 +69,20 @@ a,
     background: transparent;
     color: white;
 }
+
+.edit-add-field-wrapper textarea {
+    resize: none;
+    max-width: 20rem;
+    min-width: 10rem;
+    min-height: 20rem;
+    padding: .5rem;
+    border-radius: .3rem;
+    border: 2px solid white;
+    box-shadow: 3px 7px 3px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    color: white;
+}
+
 
 .wide-button {
     cursor: pointer;
@@ -99,3 +114,6 @@ a,
     font-weight: bolder;
 }
 
+main {
+    padding: 1rem;
+}

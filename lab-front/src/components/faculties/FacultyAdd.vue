@@ -15,22 +15,22 @@
         </div>
       </div>
 
-      <button class="wide-button" @click="addFaculty">Add</button>
-      <router-link to="/faculty">
-        <button class="wide-button button-grey">
-          Back
-        </button>
-      </router-link>
+      <CommitButton @click="addFaculty"></CommitButton>
+      <BackButton to="/faculty"></BackButton>
+
     </div>
   </div>
 </template>
 
 <script>
 import FacultyService from "./FacultyService";
+import CommitButton from "../layouts/CommitButton.vue";
+import BackButton from "../layouts/BackButton.vue";
 
 export default {
 
   name: "FacultyAdd",
+  components: {BackButton, CommitButton},
   data: () => ({
     faculty: {
       name: "",
