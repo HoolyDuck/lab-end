@@ -66,9 +66,4 @@ export default {
   overflow-wrap: break-word;
 
 }
-@media(min-width: 240px){
-  .news{
-    left: 0;
-  }
-}
 </style>
