@@ -22,7 +22,6 @@ public class StudentModel {
 
     @JsonProperty("email")
     @Email
-    @NotBlank
     private String email;
 
     @JsonProperty("name")
@@ -30,7 +29,6 @@ public class StudentModel {
     private String name;
 
     @JsonProperty("phone")
-    @NotBlank
     @Pattern(regexp = "(\\+\\d{3}\\d{9})" +
             "|(\\+\\d{2}\\(\\d{3}\\)\\d{7})|" +
             "(\\(\\d{3}\\)\\d{7})|" +
