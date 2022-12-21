@@ -15,10 +15,14 @@
         </td>
 
         <td>
-            <router-link :to="'/' + entity + '/edit/' + row.id"><img class="abutton" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUAOUPrS1o8KXzYJ-G3oGbNpNJzzJtV2qeVoRHkKh5GpGmTxr2d6CUdOU4XRLHzgh3CKE&usqp=CAU"></router-link>
+          <button>
+            <router-link :to="'/' + entity + '/edit/' + row.id">Edit</router-link>
+          </button>
         </td>
         <td>
-            <router-link :to="'/' + entity + '/delete/' + row.id"><img class="abutton" src="https://www.pngall.com/wp-content/uploads/5/Delete-Bin-Trash-PNG-Clipart.png"></router-link>
+          <button>
+            <router-link :to="'/' + entity + '/delete/' + row.id">Delete</router-link>
+          </button>
         </td>
       </tr>
     </table>
@@ -38,8 +42,7 @@ export default {
       type: Array
     },
     entity: String
-  },
-  methods: () => ({})
+  }
 
 }
 
@@ -78,12 +81,4 @@ export default {
  .crud-table th {
   font-weight: bold;
 }
-
-.abutton{
-   background: rgba(0, 0, 0, 0);
-   width: 24px;
-   height: auto;
- }
-
-
 </style>
