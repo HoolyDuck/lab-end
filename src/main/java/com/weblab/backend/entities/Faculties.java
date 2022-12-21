@@ -2,6 +2,7 @@ package com.weblab.backend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import java.util.Set;
 
@@ -17,8 +18,10 @@ public class Faculties {
 
     private long id;
     @Column(name = "name", nullable = false)
+    @NotBlank
     private String name;
     @Column(name = "short_name")
+    @NotBlank
     private String shortName;
 
     @JsonIgnore

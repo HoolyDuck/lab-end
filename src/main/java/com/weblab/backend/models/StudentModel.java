@@ -1,6 +1,9 @@
 package com.weblab.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,15 +20,20 @@ public class StudentModel {
     private Long id;
 
     @JsonProperty("email")
+    @Email
+    @NotBlank
     private String email;
 
     @JsonProperty("name")
+    @NotBlank
     private String name;
 
     @JsonProperty("phone")
+    @NotBlank
     private String phone;
 
     @JsonProperty("group_id")
+    @NotNull
     private Long groupId;
 
 }
