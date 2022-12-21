@@ -5,6 +5,7 @@ import com.weblab.backend.entities.Groups;
 import com.weblab.backend.entities.Schedules;
 import com.weblab.backend.entities.Teachers;
 import com.weblab.backend.models.ImprovedScheduleModel;
+import com.weblab.backend.models.PageScheduleModel;
 import com.weblab.backend.models.ScheduleModel;
 
 public class ScheduleMapper {
@@ -44,6 +45,17 @@ public class ScheduleMapper {
                 .disciplineId(schedules.getDisciplineId().getName())
                 .teacherId(schedules.getTeacherId())
                 .groupId(schedules.getGroupId().getName())
+                .build();
+    }
+    public static PageScheduleModel toPageModel(Schedules schedules){
+        return PageScheduleModel.builder()
+                .id(schedules.getId())
+                .classroom(schedules.getClassroom())
+                .name(schedules.getName())
+                .time(schedules.getTime())
+                .disciplineName(schedules.getDisciplineId().getName())
+                .teacherName(schedules.getTeacherId().getName())
+                .teacherSurname(schedules.getTeacherId().getSurname())
                 .build();
     }
 }

@@ -3,6 +3,14 @@ import axios from "axios";
 const Schedule_API_URL = "http://localhost:8080/api/schedules"
 
 class ScheduleService {
+    getSchedulesByTeacher(id) {
+        return axios.get(Schedule_API_URL + '/order_by_teacher/' + id)
+    }
+
+    getSchedulesByGroup(id) {
+        return axios.get(Schedule_API_URL + '/order_by_group/' + id)
+    }
+
     getAllSchedules() {
         return axios.get(Schedule_API_URL + '/all')
     };
