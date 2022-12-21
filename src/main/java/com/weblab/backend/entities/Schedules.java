@@ -3,6 +3,7 @@ package com.weblab.backend.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.*;
 
 @Entity
@@ -34,6 +35,7 @@ public class Schedules {
     private Disciplines disciplineId;
     @Column(name = "time", nullable = false)
     @NotBlank
+    @Pattern(regexp = "^[0-1][0-9]:[0-5][0-9]|[1-2][0-3]:[0-5][0-9]$")
     private String time;
 
     @Column(name = "classroom", nullable = false)

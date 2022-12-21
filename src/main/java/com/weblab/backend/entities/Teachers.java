@@ -29,7 +29,6 @@ public class Teachers {
     private String email;
     @Column(name = "phone", nullable = false)
     @NotBlank
-    @Pattern(regexp = "^[0-1][0-9]:[0-5][0-9]|[1-2][0-3]:[0-5][0-9]$")
     private String phone;
 
     @ManyToOne(optional = false)
