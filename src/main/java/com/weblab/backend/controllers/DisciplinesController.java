@@ -2,6 +2,7 @@ package com.weblab.backend.controllers;
 
 import com.weblab.backend.models.DisciplineModel;
 import com.weblab.backend.services.DisciplineService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,11 +23,11 @@ public class DisciplinesController {
         return disciplineService.getAllDisciplines();
     }
     @PostMapping ("/add")
-    public void insert_discipline(@RequestBody DisciplineModel newDiscipline){
+    public void insert_discipline(@Valid @RequestBody DisciplineModel newDiscipline){
         disciplineService.insert_discipline(newDiscipline);
     }
     @PutMapping("/update/{id}")
-    public void update_discipline(@RequestBody DisciplineModel newDiscipline, @PathVariable Long id){
+    public void update_discipline(@Valid @RequestBody DisciplineModel newDiscipline, @PathVariable Long id){
         disciplineService.update_discipline(newDiscipline, id);
     }
     @DeleteMapping("/delete/{id}")
