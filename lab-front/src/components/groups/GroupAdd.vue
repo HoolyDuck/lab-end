@@ -1,4 +1,8 @@
 <template>
+
+  <div class="edit-add-wrapper">
+
+    <div class="edit-add-field-wrapper">
   <div class="input-text">
     <p>Name</p>
     <input type="text" v-model="group.name">
@@ -14,8 +18,9 @@
     <input type="text" v-model="group.department_id">
   </div>
 
-
+    </div>
   <button @click="addGroup">Add</button>
+  </div>
 </template>
 
 <script>

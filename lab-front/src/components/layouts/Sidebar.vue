@@ -3,11 +3,13 @@
     <div class="sidebar-link sidebar-title">
       Admin
     </div>
-    <router-link class="sidebar-link"
-                 v-for="link in routelinks"
-                 :to="link['link']">
-      {{ link['name'] }}
-    </router-link>
+    <div class="sidebar-link-list">
+      <router-link class="sidebar-link"
+                   v-for="link in routelinks"
+                   :to="link['link']">
+        {{ link['name'] }}
+      </router-link>
+    </div>
   </div>
 
 
@@ -25,17 +27,27 @@ export default {
 <style scoped>
 .sidebar {
   position: absolute;
-  right: calc(100% - 3rem);
+  margin: 0 auto;
+  top: 100%;
   z-index: 1;
   display: flex;
   flex-direction: column;
+
+}
+
+.sidebar-link-list {
+  display: flex;
+  flex-direction: column;
   background: #3b3b3b;
+  max-height: calc(100vh - 10rem);
+  overflow-y: scroll;
+
 }
 
 .sidebar-link {
   padding: 1rem;
   min-width: 10rem;
-  box-shadow:  0 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px rgba(0, 0, 0, 0.2);
   text-align: left;
 }
 

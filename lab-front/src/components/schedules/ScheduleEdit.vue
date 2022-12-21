@@ -1,4 +1,8 @@
 <template>
+  <div class="edit-add-wrapper">
+
+    <div class="edit-add-field-wrapper">
+
   <div class="input-text">
     <p>Classroom</p>
     <input type="text" name = "classroom" v-model="schedule.classroom">
@@ -28,9 +32,10 @@
     <p>Group_Id</p>
     <input type="text" name="department" v-model="schedule.group_id">
   </div>
-
+    </div>
   <button @click="upgradeSchedule">Upgrade</button>
   <button><router-link to="/schedule">Back</router-link></button>
+  </div>
 </template>
 
 <script>
