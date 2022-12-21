@@ -54,7 +54,7 @@ export default {
   }),
   methods: {
     addNew() {
-      NewService.addNew(this.New).then(this.$router.go('/new'))
+      NewService.addNew(this.New).then(this.$router.push('/new'))
     }
   }
 }
