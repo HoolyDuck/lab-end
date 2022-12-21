@@ -29,6 +29,10 @@ public class Teachers {
     private String email;
     @Column(name = "phone", nullable = false)
     @NotBlank
+    @Pattern(regexp = "(\\+\\d{3}\\d{9})" +
+            "|(\\+\\d{2}\\(\\d{3}\\)\\d{7})|" +
+            "(\\(\\d{3}\\)\\d{7})|" +
+            "(0\\(\\d{3}\\)\\d{6})")
     private String phone;
 
     @ManyToOne(optional = false)
