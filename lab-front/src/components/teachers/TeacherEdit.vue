@@ -55,8 +55,7 @@ export default {
   }),
   methods: {
     upgradeTeacher() {
-      TeacherService.updateTeacher(this.teacher, this.$route.params.id)
-      this.$router.push('/teacher')
+      TeacherService.updateTeacher(this.teacher, this.$route.params.id).then(this.$router.go('/teacher'))
     }
   }
 }

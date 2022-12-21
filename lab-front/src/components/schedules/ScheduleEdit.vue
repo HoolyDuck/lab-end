@@ -63,8 +63,7 @@ export default {
   }),
   methods: {
     upgradeSchedule() {
-      ScheduleService.updateSchedule(this.schedule, this.$route.params.id)
-      this.$router.push('/schedule')
+      ScheduleService.updateSchedule(this.schedule, this.$route.params.id).then(this.$router.go('/schedule'))
     }
   }
 }

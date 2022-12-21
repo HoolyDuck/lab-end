@@ -47,15 +47,12 @@ export default {
     New: {
       date: "",
       text: "",
-      discipline: {
-        id: 0
-      }
+      img: ""
     }
   }),
   methods: {
     upgradeNew() {
-      NewService.updateNew(this.New, this.$route.params.id)
-      this.$router.push('/new')
+      NewService.updateNew(this.New, this.$route.params.id).then(this.$router.go('/new'))
     }
   }
 }

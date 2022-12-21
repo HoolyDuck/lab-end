@@ -36,8 +36,7 @@ export default {
   }),
   methods: {
     updateFaculty() {
-      FacultyService.updateFaculty(this.faculty, this.$route.params.id)
-      this.$router.go('/faculty')
+      FacultyService.updateFaculty(this.faculty, this.$route.params.id).then(this.$router.push('/faculty'))
     }
   },
 }

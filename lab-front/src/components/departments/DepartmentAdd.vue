@@ -48,7 +48,7 @@ export default {
   }),
   methods: {
     addDepartment() {
-      DepartmentService.addDepartment(this.department);
+      DepartmentService.addDepartment(this.department).then(this.$router.push('/department'));
     }
   }
 }

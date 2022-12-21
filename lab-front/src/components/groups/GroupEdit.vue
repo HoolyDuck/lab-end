@@ -42,7 +42,7 @@ export default {
   }),
   methods: {
     updateGroup() {
-      GroupService.updateGroup(this.group, this.$route.params.id)
+      GroupService.updateGroup(this.group, this.$route.params.id).then(this.$router.go('/group'))
     }
   },
 }

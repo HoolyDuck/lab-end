@@ -51,7 +51,7 @@ export default {
   }),
   methods: {
     updateStudent() {
-      StudentService.updateStudent(this.student, this.$route.params.id)
+      StudentService.updateStudent(this.student, this.$route.params.id).then(this.$router.go('/student'))
     }
   },
 }

@@ -44,7 +44,7 @@ export default {
   }),
   methods: {
     addGroup() {
-      GroupService.addGroup(this.group)
+      GroupService.addGroup(this.group).then(this.$router.go('/group'))
     }
   }
 }

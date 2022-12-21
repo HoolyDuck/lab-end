@@ -47,7 +47,7 @@ export default {
   }),
   methods: {
     updateDepartment() {
-      DepartmentService.updateDepartment(this.department, this.$route.params.id)
+      DepartmentService.updateDepartment(this.department, this.$route.params.id).then(this.$router.push('/department'))
     }
   },
 }

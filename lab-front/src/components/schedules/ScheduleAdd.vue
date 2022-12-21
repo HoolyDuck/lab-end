@@ -66,8 +66,8 @@ export default {
   }),
   methods: {
     addSchedule() {
-      ScheduleService.addSchedule(this.schedule)
-      this.$router.push('/schedule')
+      ScheduleService.addSchedule(this.schedule).then(this.$router.go('/schedule'))
+
     }
   }
 }

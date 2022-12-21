@@ -33,8 +33,7 @@ export default {
   }),
   methods: {
     updateDiscipline() {
-      DisciplineService.updateDiscipline(this.discipline, this.$route.params.id)
-      this.$router.push('/discipline')
+      DisciplineService.updateDiscipline(this.discipline, this.$route.params.id).then( this.$router.go('/discipline'))
     }
   }
 }

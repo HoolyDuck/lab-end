@@ -39,8 +39,8 @@ export default {
   }),
   methods: {
     addFaculty() {
-      FacultyService.addFaculty(this.faculty)
-      this.$router.go('/faculty')
+      FacultyService.addFaculty(this.faculty).then(this.$router.push('/faculty'))
+
     }
   }
 }

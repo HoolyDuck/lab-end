@@ -55,8 +55,7 @@ export default {
   }),
   methods: {
     addTeacher() {
-      TeacherService.addTeacher(this.teacher)
-      this.$router.push('/teacher')
+      TeacherService.addTeacher(this.teacher).then(this.$router.go('/teacher'))
     }
   }
 }

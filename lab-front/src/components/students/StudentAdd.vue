@@ -51,7 +51,7 @@ export default {
   }),
   methods: {
     addStudent() {
-      StudentService.addStudent(this.student)
+      StudentService.addStudent(this.student).then(this.$router.go('/student'))
     }
   }
 }
