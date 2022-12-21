@@ -2,7 +2,6 @@ package com.weblab.backend.controllers;
 
 import com.weblab.backend.models.StudentModel;
 import com.weblab.backend.services.StudentService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,12 +24,12 @@ public class StudentsController {
     }
 
     @PostMapping("")
-    public void addStudent(@Valid @RequestBody StudentModel newStudent) {
+    public void addStudent(@RequestBody StudentModel newStudent) {
         studentService.add(newStudent);
     }
 
     @PutMapping("{id}")
-    public void updateStudent(@Valid @RequestBody StudentModel newStudent, @PathVariable Long id) {
+    public void updateStudent(@RequestBody StudentModel newStudent, @PathVariable Long id) {
         studentService.update(newStudent, id);
     }
 

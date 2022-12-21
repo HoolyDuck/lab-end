@@ -2,7 +2,6 @@ package com.weblab.backend.controllers;
 
 import com.weblab.backend.entities.News;
 import com.weblab.backend.repositories.NewsRepository;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,12 +21,12 @@ public class NewsController {
     }
 
     @PostMapping("/add")
-    public News insert_new(@Valid @RequestBody News newNew) {
+    public News insert_new(@RequestBody News newNew) {
         return newsRepository.save(newNew);
     }
 
     @PutMapping("/update/{id}")
-    public News update_new(@Valid @RequestBody News newNew, @PathVariable Long id) {
+    public News update_new(@RequestBody News newNew, @PathVariable Long id) {
         return newsRepository.findById(id)
                 .map(New -> {
                     New.setDate(newNew.getDate());

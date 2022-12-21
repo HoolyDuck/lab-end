@@ -3,7 +3,6 @@ package com.weblab.backend.controllers;
 
 import com.weblab.backend.models.FacultyModel;
 import com.weblab.backend.services.FacultyService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,12 +26,12 @@ public class FacultiesController {
     }
 
     @PostMapping("")
-    public void addFaculty(@Valid @RequestBody FacultyModel newFaculty) {
+    public void addFaculty(@RequestBody FacultyModel newFaculty) {
         facultyService.add(newFaculty);
     }
 
     @PutMapping("{id}")
-    public void updateFaculty(@Valid@RequestBody FacultyModel newFaculty, @PathVariable Long id) {
+    public void updateFaculty(@RequestBody FacultyModel newFaculty, @PathVariable Long id) {
        facultyService.update(newFaculty, id);
     }
 
