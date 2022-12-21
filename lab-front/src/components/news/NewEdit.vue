@@ -52,7 +52,7 @@ export default {
   }),
   methods: {
     upgradeNew() {
-      NewService.updateNew(this.New, this.$route.params.id).then(this.$router.go('/new'))
+      NewService.updateNew(this.New, this.$route.params.id).then(this.$router.push('/new'))
     }
   }
 }
