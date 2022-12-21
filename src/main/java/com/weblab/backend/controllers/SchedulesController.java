@@ -4,6 +4,7 @@ import com.weblab.backend.entities.Schedules;
 import com.weblab.backend.models.ImprovedScheduleModel;
 import com.weblab.backend.models.ScheduleModel;
 import com.weblab.backend.services.ScheduleService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,11 +28,11 @@ public class SchedulesController {
         return scheduleService.getAllSchedules2();
     }
     @PostMapping("/add")
-    public void insert_schedule(@RequestBody ScheduleModel newSchedule){
+    public void insert_schedule(@Valid  @RequestBody ScheduleModel newSchedule){
         scheduleService.insert_schedule(newSchedule);
     }
     @PutMapping("/update/{id}")
-    public void update_schedule(@RequestBody ScheduleModel newSchedule, @PathVariable Long id){
+    public void update_schedule(@Valid @RequestBody ScheduleModel newSchedule, @PathVariable Long id){
         scheduleService.update_schedule(newSchedule, id);
     }
     @DeleteMapping("/delete/{id}")

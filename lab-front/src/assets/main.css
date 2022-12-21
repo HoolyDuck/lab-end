@@ -20,7 +20,11 @@ a,
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
-
+@media(min-width: 240px){
+.news{
+  left: 0;
+}
+}
 @media (min-width: 1024px) {
   body {
     display: flex;
@@ -39,4 +43,17 @@ a,
   flex-direction: column;
   gap: 10px;
 }
+
+.back{
+  width: 36px;
+  height: auto;
+}
+
+.add_but{
+  width: 36px;
+  height: auto;
+}
+
+
+
 
