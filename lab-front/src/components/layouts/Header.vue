@@ -44,7 +44,6 @@ export default {
 <style>
 
 header {
-  z-index: 1;
   position: fixed;
   width: 100%;
   top:0;
