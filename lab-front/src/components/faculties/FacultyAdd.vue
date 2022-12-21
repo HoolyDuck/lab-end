@@ -1,22 +1,27 @@
 <template>
-  <div class="edit-add-wrapper">
 
-    <div class="edit-add-field-wrapper">
-      <div class="input-text">
-        <p>Name</p>
-        <input type="text" v-model="faculty.name">
+  <div class="flex center">
+    <p class="cool-text bolder">Add Faculty</p>
+    <div class="edit-add-wrapper">
+      <div class="edit-add-field-wrapper">
+        <div class="input-text">
+          <p>Name</p>
+          <input type="text" v-model="faculty.name">
+        </div>
+
+        <div class="input-text">
+          <p >Short name</p>
+          <input type="text" name="short_name" v-model="faculty.short_name">
+        </div>
       </div>
 
-      <div class="input-text">
-        <p>Short_Name</p>
-        <input type="text" name="short_name" v-model="faculty.short_name">
-      </div>
+      <button class="wide-button" @click="addFaculty">Add</button>
+      <router-link to="/faculty">
+        <button class="wide-button button-grey">
+          Back
+        </button>
+      </router-link>
     </div>
-
-    <button @click="addFaculty">Add</button>
-    <button>
-      <router-link to="/faculty">Back</router-link>
-    </button>
   </div>
 </template>
 
@@ -35,7 +40,7 @@ export default {
   methods: {
     addFaculty() {
       FacultyService.addFaculty(this.faculty)
-      this.$router.push('/faculty')
+      this.$router.go('/faculty')
     }
   }
 }
