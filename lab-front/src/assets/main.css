@@ -1,7 +1,6 @@
 @import './base.css';
 
 #app {
-    max-width: 1280px;
     margin: 0 auto;
     padding: 0;
 
@@ -25,37 +24,78 @@ a,
 .input-text {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 3px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
 }
 
 .edit-add-wrapper {
+    padding-bottom: 2rem;
+    border-radius: 8px;
+    background: var(--color-background-soft);
+    max-width: 20rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+    box-shadow: 3px 7px 3px rgba(0, 0, 0, 0.2);
 }
 
 .edit-add-field-wrapper {
+    padding: 2rem;
     justify-content: center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     max-height: 100rem;
     gap: 2rem;
 }
 
 .edit-add-field-wrapper input {
-    width: 100%;
-    padding: .3rem;
+    min-width: 10rem;
+    padding: .5rem;
+    border-radius: .3rem;
     border: 2px solid white;
-    box-shadow: 3px 7px 3px rgba(0,0,0,0.2);
-    background: #9a9a9a;
+    box-shadow: 3px 7px 3px rgba(0, 0, 0, 0.2);
+    background: transparent;
+    color: white;
 }
 
 .wide-button {
+    cursor: pointer;
+    color: black;
+    padding: .3rem;
+    background: mediumspringgreen;
+    border: none;
     min-width: 6rem;
     max-width: 10rem;
-    border-radius: 0;
+    border-radius: 8px;
+    font-weight: bold;
 }
 
+.button-grey {
+    background: darkgrey;
+}
+
+
+
+
+.cool-text {
+    background: linear-gradient(to left, mediumspringgreen, lightslategray);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bolder {
+    font-size: 2rem;
+    font-weight: bolder;
+}
 

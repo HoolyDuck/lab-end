@@ -17,7 +17,7 @@ export default {
 
   components: {Table},
   data: () => ({
-    columns: ["ID", "Name", "Short_Name"],
+    columns: ["ID", "Name", "Short Name"],
     faculties: []
   }),
   methods: {
