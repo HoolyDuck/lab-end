@@ -1,12 +1,12 @@
 <template>
   <header>
     <div class="header-part">
-    <div class="header-link">Logo</div>
+    <div class="header-link"><i class="fa-solid fa-school-flag"></i></div>
     <router-link class="header-link" to="/schedule">Schedule</router-link>
     <router-link class="header-link" to="/new">News</router-link>
     </div>
     <div class="sidebar-menu">
-      <div class="burger-button" @click="this.showSidebar=!this.showSidebar">|||</div>
+      <i class="fa-solid fa-bars header-link" @click="this.showSidebar=!this.showSidebar"></i>
       <Sidebar @click="this.showSidebar=!this.showSidebar"
                :routelinks="this.routeLinks"
                v-if="this.showSidebar"></Sidebar>
@@ -37,7 +37,11 @@ export default {
       {'link': "/discipline", 'name': 'Disciplines'}
     ]
   }),
-  methods: () => ({})
+  methods: () => ({
+
+
+
+  })
 
 
 }
@@ -47,12 +51,22 @@ export default {
 <style>
 
 header {
-  width: 100%;
+  width: 100vw;
   display: flex;
   justify-content: space-between;
 
   margin-bottom: 1rem;
   box-shadow: 3px 7px 3px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  flex-basis: max-content;
+  align-items: flex-end;
+  justify-content: flex-start;
+
+
 }
 
 .header-part {
@@ -64,23 +78,9 @@ header {
   display: flex;
   padding: 1rem;
   align-items: center;
-}
-
-.burger-button {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  height: 3rem;
-  width: 3rem;
-  text-align: center;
-  rotate: 90deg;
-  transition: .4s;
 }
 
-.burger-button:hover {
-  background: rgba(32, 178, 100, 0.63);
-}
 
 
 </style>

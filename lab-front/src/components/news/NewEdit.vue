@@ -1,28 +1,35 @@
 <template>
-  <div class="input-text">
-    <p>Date</p>
-    <input type="date" name="date" v-model="New.date">
-  </div>
 
-  <div class="input-text">
-    <p>Text</p>
-    <input type="text" name="text" v-model="New.text">
-  </div>
+  <div class="edit-add-wrapper">
 
-  <div class="input-text">
-    <p>Title</p>
-    <input type="text" name="subject" v-model="New.title">
-  </div>
+    <div class="edit-add-field-wrapper">
 
-  <div class="input-text">
-    <p>Title</p>
-    <input type="text" name="subject" v-model="New.img">
-  </div>
+      <div class="input-text">
+        <p>Date</p>
+        <input type="date" name="date" v-model="New.date">
+      </div>
 
-  <button @click="upgradeNew">Upgrade</button>
-  <button>
-    <router-link to="/new">Back</router-link>
-  </button>
+      <div class="input-text">
+        <p>Text</p>
+        <input type="text" name="text" v-model="New.text">
+      </div>
+
+      <div class="input-text">
+        <p>Title</p>
+        <input type="text" name="subject" v-model="New.title">
+      </div>
+
+      <div class="input-text">
+        <p>Title</p>
+        <input type="text" name="subject" v-model="New.img">
+      </div>
+    </div>
+    <button @click="upgradeNew">Upgrade</button>
+    <button>
+      <router-link to="/new">Back</router-link>
+    </button>
+
+  </div>
 </template>
 
 <script>
