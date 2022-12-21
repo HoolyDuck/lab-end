@@ -17,7 +17,7 @@ export default {
   name: "NewTable",
   components: {Table},
   data: () => ({
-    columns: ["ID", "Subject", "Text", "Date"],
+    columns: ["ID", "Subject", "Text", "Date", "Img"],
     news: []
   }),
   methods: {

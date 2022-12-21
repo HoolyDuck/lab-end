@@ -11,7 +11,9 @@
       <tr v-for="row in rows">
 
         <td v-for="data in row">
+          <div class="table-data-wrapper">
           {{ data }}
+          </div>
         </td>
         <td>
             <router-link :to="'/' + entity + '/edit/' + row.id"><i class="fa-solid fa-edit "></i></router-link>
@@ -68,14 +70,21 @@ export default {
   background: rgba(255, 255, 255, .07);
 }
 
-.crud-table td, th {
+.crud-table td, .crud-table th {
   min-width: 40px;
   max-width: 200px;
-  word-wrap: break-word;
-  text-align: center;
+  word-break: break-word;
   padding: .7rem 1rem .7rem 1rem;
   border-right: .1rem solid rgb(75, 75, 75);
+  overflow-y: scroll;
+  text-align: justify;
 }
+
+.table-data-wrapper {
+  max-height: 15rem;
+  overflow-y: scroll;
+}
+
 
  .crud-table th {
   font-weight: bold;

@@ -17,7 +17,8 @@ public class News {
     private long id;
     @Column(name = "title", nullable = false)
     private String title;
-    @Column(name = "text")
+    @Lob
+    @Column(name = "text", length = 2048)
     private String text;
     @Column(name = "date", nullable = false)
     private Date date;
