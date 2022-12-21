@@ -2,6 +2,8 @@ package com.weblab.backend.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.Set;
@@ -18,13 +20,16 @@ public class Departments {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(name = "name", nullable = false, unique = true)
+    @NotBlank
     private String name;
 
     @Column(name = "short_name", nullable = false, unique = true)
+    @NotBlank
     private String shortName;
 
     @ManyToOne
     @JoinColumn(name = "faculty_id", referencedColumnName = "id", nullable = false)
+    @NotNull
     private Faculties faculty;
 
     @JsonIgnore
