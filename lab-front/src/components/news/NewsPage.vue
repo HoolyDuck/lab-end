@@ -39,7 +39,6 @@ export default {
   height: auto;
   min-height:100%;
   top: 4rem;
-  min-width: ;
 }
 
 .news {
@@ -66,5 +65,10 @@ export default {
   word-break: break-word;
   overflow-wrap: break-word;
 
+}
+@media(min-width: 240px){
+  .news{
+    left: 0;
+  }
 }
 </style>

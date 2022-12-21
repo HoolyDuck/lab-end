@@ -32,7 +32,7 @@ public class Schedules {
     @NotNull
     private Disciplines disciplineId;
     @Column(name = "time", nullable = false)
-    @Pattern(regexp = "^[0-2][0-3]:[0-5][0-9]$")
+    @Pattern(regexp = "^[0-1][0-9]:[0-5][0-9]|[1-2][0-3]:[0-5][0-9]$")
     private String time;
     @Column(name = "classroom", nullable = false)
     @NotBlank

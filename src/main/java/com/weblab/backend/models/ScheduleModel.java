@@ -23,7 +23,7 @@ public class ScheduleModel {
     @NotBlank
     private String name;
     @JsonProperty("time")
-    @Pattern(regexp = "^[0-2][0-3]:[0-5][0-9]$")
+    @Pattern(regexp = "^[0-1][0-9]:[0-5][0-9]|[1-2][0-3]:[0-5][0-9]$")
     private String time;
     @JsonProperty("discipline_id")
     @NotNull
