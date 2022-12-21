@@ -1,7 +1,6 @@
 <template>
   <Table :columns="columns" :rows="groups" entity="group"></Table>
-  <router-link to="/group/add">Add</router-link>
-  <router-link to="/">Back</router-link>
+  <button><router-link to="/group/add">Add</router-link></button>
 </template>
 
 <script>

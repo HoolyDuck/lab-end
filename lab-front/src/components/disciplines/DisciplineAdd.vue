@@ -1,11 +1,18 @@
 <template>
-  <div class="input-text">
-    <p>Name</p>
-    <input type="text" name = "name" v-model="discipline.name">
-  </div>
+  <div class="edit-add-wrapper">
 
-  <button @click="addDiscipline">Add</button>
-  <button><router-link to="/discipline">Back</router-link></button>
+    <div class="edit-add-field-wrapper">
+
+      <div class="input-text">
+        <p>Name</p>
+        <input type="text" name="name" v-model="discipline.name">
+      </div>
+    </div>
+    <button @click="addDiscipline">Add</button>
+    <button>
+      <router-link to="/discipline">Back</router-link>
+    </button>
+  </div>
 </template>
 
 <script>
@@ -16,7 +23,7 @@ export default {
   name: "DisciplineAdd",
   data: () => ({
     discipline: {
-      name:""
+      name: ""
     }
   }),
   methods: {

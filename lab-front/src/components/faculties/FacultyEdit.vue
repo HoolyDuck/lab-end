@@ -1,21 +1,30 @@
 <template>
-  <div class="input-text">
-    <p>Name</p>
-    <input type="text" name="name" v-model="faculty.name">
+  <div class="edit-add-wrapper">
+
+    <div class="edit-add-field-wrapper">
+
+      <div class="input-text">
+        <p>Name</p>
+        <input type="text" name="name" v-model="faculty.name">
+      </div>
+
+      <div class="input-text">
+        <p>Short_Name</p>
+        <input type="text" name="short_name" v-model="faculty.short_name">
+      </div>
+    </div>
+
+    <button @click="updateFaculty">Update</button>
+    <button>
+      <router-link to="/faculty">Back</router-link>
+    </button>
   </div>
 
-  <div class="input-text">
-    <p>Short_Name</p>
-    <input type="text" name="short_name" v-model="faculty.short_name">
-  </div>
-
-
-  <button @click="updateFaculty">Update</button>
-  <router-link to="/faculty">Back</router-link>
 </template>
 
 <script>
 import FacultyService from "./FacultyService";
+
 export default {
 
   name: "FacultyEdit",

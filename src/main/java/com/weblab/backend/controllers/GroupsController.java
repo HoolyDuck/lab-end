@@ -2,7 +2,6 @@ package com.weblab.backend.controllers;
 
 import com.weblab.backend.models.GroupModel;
 import com.weblab.backend.services.GroupService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,12 +25,12 @@ public class GroupsController {
     }
 
     @PostMapping("")
-    public void addGroup(@Valid @RequestBody GroupModel newGroup) {
+    public void addGroup(@RequestBody GroupModel newGroup) {
         groupService.add(newGroup);
     }
 
     @PutMapping("{id}")
-    public void updateGroup(@Valid @RequestBody GroupModel newGroup, @PathVariable Long id) {
+    public void updateGroup(@RequestBody GroupModel newGroup, @PathVariable Long id) {
         groupService.update(newGroup, id);
     }
 

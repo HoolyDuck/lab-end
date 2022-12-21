@@ -2,7 +2,6 @@ package com.weblab.backend.controllers;
 
 import com.weblab.backend.models.DepartmentModel;
 import com.weblab.backend.services.DepartmentService;
-import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,12 +23,12 @@ public class DepartmentsController {
     }
 
     @PostMapping("")
-    public void addDepartment(@Valid @RequestBody DepartmentModel newDepartment) {
+    public void addDepartment(@RequestBody DepartmentModel newDepartment) {
         departmentService.add(newDepartment);
     }
 
     @PutMapping("{id}")
-    public void replaceDepartment(@Valid @RequestBody DepartmentModel newDepartment, @PathVariable Long id) {
+    public void replaceDepartment(@RequestBody DepartmentModel newDepartment, @PathVariable Long id) {
         departmentService.update(newDepartment, id);
     }
 

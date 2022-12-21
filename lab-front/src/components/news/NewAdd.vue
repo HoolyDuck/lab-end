@@ -1,4 +1,8 @@
 <template>
+  <div class="edit-add-wrapper">
+
+    <div class="edit-add-field-wrapper">
+
   <div class="input-text">
     <p>Date</p>
     <input type="date" name = "date" v-model="New.date">
@@ -19,8 +23,10 @@
     <input type="text" name="subject" v-model="New.img">
   </div>
 
+    </div>
   <button @click="addNew">Add</button>
   <button><router-link to="/new">Back</router-link></button>
+  </div>
 </template>
 
 <script>

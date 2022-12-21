@@ -3,12 +3,10 @@
 import {createRouter, createWebHistory} from 'vue-router/dist/vue-router.esm-bundler'
 import Home from '../components/Home.vue'
 import Test from '../components/Test.vue'
-import Faculty from "../components/faculties/Faculty.vue";
 import FacultyAdd from "../components/faculties/FacultyAdd.vue";
 import FacultyEdit from "../components/faculties/FacultyEdit.vue";
 import FacultyTable from "../components/faculties/FacultyTable.vue";
 import FacultyDelete from "../components/faculties/FacultyDelete.vue";
-import Teacher from "../components/teachers/Teacher.vue";
 import TeacherTable from "../components/teachers/TeacherTable.vue";
 import TeacherAdd from "../components/teachers/TeacherAdd.vue";
 import TeacherEdit from "../components/teachers/TeacherEdit.vue";
@@ -17,8 +15,6 @@ import ScheduleTable from "../components/schedules/ScheduleTable.vue";
 import ScheduleAdd from "../components/schedules/ScheduleAdd.vue";
 import ScheduleEdit from "../components/schedules/ScheduleEdit.vue";
 import ScheduleDelete from "../components/schedules/ScheduleDelete.vue";
-import Schedule from "../components/schedules/Schedule.vue";
-import Discipline from "../components/disciplines/Discipline.vue";
 import DisciplineTable from "../components/disciplines/DisciplineTable.vue";
 import DisciplineAdd from "../components/disciplines/DisciplineAdd.vue";
 import DisciplineEdit from "../components/disciplines/DisciplineEdit.vue";
@@ -27,13 +23,10 @@ import NewTable from "../components/news/NewTable.vue";
 import NewAdd from "../components/news/NewAdd.vue";
 import NewEdit from "../components/news/NewEdit.vue";
 import NewDelete from "../components/news/NewDelete.vue";
-import New from "../components/news/New.vue";
-import Department from "../components/departments/Department.vue";
 import DepartmentTable from "../components/departments/DepartmentTable.vue";
 import DepartmentAdd from "../components/departments/DepartmentAdd.vue";
 import DepartmentEdit from "../components/departments/DepartmentEdit.vue";
 import DepartmentDelete from "../components/departments/DepartmentDelete.vue";
-import Group from "../components/groups/Group.vue";
 import GroupTable from "../components/groups/GroupTable.vue";
 import GroupAdd from "../components/groups/GroupAdd.vue";
 import GroupEdit from "../components/groups/GroupEdit.vue";
@@ -44,6 +37,7 @@ import StudentEdit from "../components/students/StudentEdit.vue";
 import StudentDelete from "../components/students/StudentDelete.vue";
 import SchedulesPage from "../components/schedules/SchedulesPage.vue";
 import NewsPage from "../components/news/NewsPage.vue";
+import MainView from "../components/layouts/MainView.vue";
 
 const routes = [
     {
@@ -56,7 +50,7 @@ const routes = [
     },
     {
         path: '/faculty',
-        component: Faculty,
+        component: MainView,
         children: [
             {
                 path: '',
@@ -80,7 +74,7 @@ const routes = [
     },
     {
         path: '/department',
-        component: Department,
+        component: MainView,
         children: [
             {
                 path: '',
@@ -103,7 +97,7 @@ const routes = [
     },
     {
         path: '/group',
-        component: Group,
+        component: MainView,
         children: [
             {
                 path: '',
@@ -126,7 +120,7 @@ const routes = [
     },
     {
         path: '/teacher',
-        component: Teacher,
+        component: MainView,
         children: [
             {
                 path: '',
@@ -148,7 +142,7 @@ const routes = [
     },
     {
         path: '/schedule',
-        component: Schedule,
+        component: MainView,
         children: [
             {
                 path: '',
@@ -174,7 +168,7 @@ const routes = [
     },
     {
         path: '/discipline',
-        component: Discipline,
+        component: MainView,
         children: [
             {
                 path: '',
@@ -196,7 +190,7 @@ const routes = [
     },
     {
         path: '/new',
-        component: New,
+        component: MainView,
         children: [
             {
                 path: '',
@@ -222,7 +216,7 @@ const routes = [
     },
     {
         path: '/student',
-        component: New,
+        component: MainView,
         children: [
             {
                 path: '',

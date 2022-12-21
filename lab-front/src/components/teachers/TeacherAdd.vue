@@ -1,4 +1,8 @@
 <template>
+
+  <div class="edit-add-wrapper">
+
+    <div class="edit-add-field-wrapper">
   <div class="input-text">
     <p>Name</p>
     <input type="text" name = "name" v-model="teacher.name">
@@ -23,9 +27,10 @@
     <p>Department_Id</p>
     <input type="text" name="department" v-model="teacher.department_id">
   </div>
-
+    </div>
   <button @click="addTeacher">Add</button>
   <button><router-link to="/teacher">Back</router-link></button>
+  </div>
 </template>
 
 <script>

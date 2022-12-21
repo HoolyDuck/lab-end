@@ -1,7 +1,11 @@
 <template>
   <Table :columns="columns" :rows="schedules" entity="schedule"></Table>
-  <router-link to="/schedule/add">Add</router-link>
-  <router-link to="/">Back</router-link>
+  <button>
+    <router-link to="/schedule/add">Add</router-link>
+  </button>
+  <button>
+    <router-link to="/">Back</router-link>
+  </button>
 </template>
 
 <script>
