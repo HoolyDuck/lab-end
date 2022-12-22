@@ -47,16 +47,16 @@ public class ScheduleMapper {
                 .groupId(schedules.getGroupId().getName())
                 .build();
     }
-
-    public static PageScheduleModel toPageModel(Schedules schedule){
+    public static PageScheduleModel toPageModel(Schedules schedules){
         return PageScheduleModel.builder()
-                .classroom(schedule.getClassroom())
-                .name(schedule.getName())
-                .time(schedule.getTime())
-                .groupName(schedule.getGroupId().getName())
-                .teacherName(schedule.getTeacherId().getName())
-                .teacherSurname(schedule.getTeacherId().getSurname())
-                .disciplineName(schedule.getDisciplineId().getName())
+                .id(schedules.getId())
+                .classroom(schedules.getClassroom())
+                .name(schedules.getName())
+                .time(schedules.getTime())
+                .groupName(schedules.getGroupId().getName())
+                .disciplineName(schedules.getDisciplineId().getName())
+                .teacherName(schedules.getTeacherId().getName())
+                .teacherSurname(schedules.getTeacherId().getSurname())
                 .build();
     }
 }

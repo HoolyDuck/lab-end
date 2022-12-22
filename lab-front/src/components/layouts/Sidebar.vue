@@ -3,6 +3,7 @@
     <div class="sidebar-link sidebar-title">
       Admin
     </div>
+
     <div class="sidebar-link-list">
       <router-link class="sidebar-link"
                    v-for="link in routelinks"
@@ -10,7 +11,9 @@
         {{ link['name'] }}
       </router-link>
     </div>
+
   </div>
+
 
 
 </template>
@@ -29,13 +32,16 @@ export default {
   position: absolute;
   margin: 0 auto;
   top: 100%;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: column;
 
 }
 
+
+
 .sidebar-link-list {
+  z-index: 3;
   display: flex;
   flex-direction: column;
   background: #3b3b3b;
@@ -45,6 +51,7 @@ export default {
 }
 
 .sidebar-link {
+  z-index: 3;
   padding: 1rem;
   min-width: 10rem;
   box-shadow: 0 2px rgba(0, 0, 0, 0.2);

@@ -1,40 +1,53 @@
 <template>
-  <div class="edit-add-wrapper">
 
-    <div class="edit-add-field-wrapper">
+  <div class="flex center">
+    <p class="cool-text bolder">Edit Faculty</p>
+    <div class="edit-add-wrapper">
 
-      <div class="input-text">
-        <p>Name</p>
-        <input type="text" name="name" v-model="faculty.name">
+      <div class="edit-add-field-wrapper">
+
+        <div class="input-text">
+          <p>Name</p>
+          <input type="text" name="name" v-model="faculty.name" >
+        </div>
+
+        <div class="input-text">
+          <p>Short name</p>
+          <input type="text" name="short_name" v-model="faculty.short_name">
+        </div>
       </div>
-
-      <div class="input-text">
-        <p>Short_Name</p>
-        <input type="text" name="short_name" v-model="faculty.short_name">
-      </div>
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
+      <CommitButton @click="updateFaculty"></CommitButton>
+      <BackButton to="/faculty"></BackButton>
     </div>
-
-    <button @click="updateFaculty">Update</button>
-    <button>
-      <router-link to="/faculty">Back</router-link>
-    </button>
   </div>
-
 </template>
 
 <script>
 import FacultyService from "./FacultyService";
+import BackButton from "../layouts/BackButton.vue";
+import CommitButton from "../layouts/CommitButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
 
   name: "FacultyEdit",
+  components: {CommitButton, BackButton},
   data: () => ({
-    faculty: {}
+    faculty: {},
+    showError: false,
+    errorText: ""
   }),
   methods: {
     updateFaculty() {
       FacultyService.updateFaculty(this.faculty, this.$route.params.id)
-      this.$router.push('/faculty')
+          .then(() => {
+            this.$router.push('/faculty')
+          })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   },
 }

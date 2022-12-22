@@ -1,7 +1,6 @@
 
 
 import {createRouter, createWebHistory} from 'vue-router/dist/vue-router.esm-bundler'
-import Home from '../components/Home.vue'
 import Test from '../components/Test.vue'
 import FacultyAdd from "../components/faculties/FacultyAdd.vue";
 import FacultyEdit from "../components/faculties/FacultyEdit.vue";
@@ -42,11 +41,7 @@ import MainView from "../components/layouts/MainView.vue";
 const routes = [
     {
         path: '/',
-        component: Home
-    },
-    {
-        path: '/test',
-        component: Test
+        redirect: '/schedule/page'
     },
     {
         path: '/faculty',
@@ -240,7 +235,7 @@ const routes = [
 
 
 
-    {path: '/:pathMatch(.*)', redirect: '/'}
+    {path: '/:pathMatch(.*)', component: Test}
 ]
 
 export default () => createRouter({

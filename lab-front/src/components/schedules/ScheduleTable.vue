@@ -1,11 +1,10 @@
 <template>
+  <router-link class="icon" to="/schedule/add">
+    <i class="fa-solid fa-plus"></i>
+    <p class="cool-text bold"> Add</p>
+  </router-link>
   <Table :columns="columns" :rows="schedules" entity="schedule"></Table>
-  <button>
-    <router-link to="/schedule/add">Add</router-link>
-  </button>
-  <button>
-    <router-link to="/">Back</router-link>
-  </button>
+
 </template>
 
 <script>

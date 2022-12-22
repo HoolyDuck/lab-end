@@ -18,6 +18,11 @@ class GroupService {
     deleteGroup(id) {
         return axios.delete(GROUP_API_URL + '/' + id)
     }
+
+    getAllGroupSelectModels() {
+        return axios.get(GROUP_API_URL + '/select')
+    };
+
 }
 
 export default new GroupService()

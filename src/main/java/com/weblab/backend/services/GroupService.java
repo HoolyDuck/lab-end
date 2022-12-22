@@ -4,6 +4,7 @@ package com.weblab.backend.services;
 import com.weblab.backend.entities.Departments;
 import com.weblab.backend.mappers.GroupMapper;
 import com.weblab.backend.models.GroupModel;
+import com.weblab.backend.models.GroupSelectModel;
 import com.weblab.backend.repositories.GroupsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,6 +54,16 @@ public class GroupService {
 
     public void deleteById(Long id) {
         groupsRepository.deleteById(id);
+    }
+
+    public List<GroupSelectModel> getAllGroupNames() {
+        List<GroupSelectModel> groupSelectModels = new ArrayList<>();
+
+        groupsRepository.findAll().forEach(groups -> groupSelectModels.add(GroupSelectModel.builder()
+                .id(groups.getId())
+                .groupName(groups.getName())
+                .build()));
+        return groupSelectModels;
     }
 
 

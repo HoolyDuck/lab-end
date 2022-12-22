@@ -1,6 +1,7 @@
 package com.weblab.backend.controllers;
 
 import com.weblab.backend.models.TeacherModel;
+import com.weblab.backend.models.TeacherSelectModel;
 import com.weblab.backend.services.TeacherService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,11 @@ public class TeacherController {
                 .status(HttpStatus.BAD_REQUEST)
                 .body(e.getMessage());
     }
+
+
+    @GetMapping("select")
+    public List<TeacherSelectModel> getTeacherSelectModels() {
+        return teacherService.getAllTeacherNames();
+    }
+
 }

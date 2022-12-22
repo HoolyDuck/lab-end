@@ -1,20 +1,16 @@
 package com.weblab.backend.services;
 
-import com.weblab.backend.entities.Groups;
 import com.weblab.backend.entities.Schedules;
 import com.weblab.backend.mappers.ScheduleMapper;
 import com.weblab.backend.models.ImprovedScheduleModel;
 import com.weblab.backend.models.PageScheduleModel;
 import com.weblab.backend.models.ScheduleModel;
-import com.weblab.backend.repositories.GroupsRepository;
 import com.weblab.backend.repositories.SchedulesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class ScheduleService {
@@ -26,7 +22,7 @@ public class ScheduleService {
     }
 
     public List<ScheduleModel> getAllSchedules() {
-        List<ScheduleModel> scheduleModels = getScheduleModels();
+        List<ScheduleModel> scheduleModels = new ArrayList<>();
         schedulesRepository.findAll().forEach(schedules ->
                 scheduleModels.add(ScheduleMapper.toModel(schedules)));
         return scheduleModels;
@@ -65,11 +61,11 @@ public class ScheduleService {
     }
 
     public List<PageScheduleModel> getSchedulesByGroup(Long group_id) {
-        List<Schedules> schedules_list = getSchedules();
-        schedulesRepository.findAll().forEach(schedules_list::add);
-        List<PageScheduleModel> scheduleModels_by_Group = getPageScheduleModels();;
-        for (Schedules schedule : schedules_list) {
-            if (Objects.equals(schedule.getGroupId().getId(), group_id)) {
+        List<Schedules> scheduleModels = new ArrayList<>();
+        List<PageScheduleModel> scheduleModels_by_Group = getPageScheduleModels();
+        schedulesRepository.findAll().forEach(scheduleModels::add);
+        for (Schedules schedule : scheduleModels) {
+            if (schedule.getGroupId().getId() == group_id) {
                 scheduleModels_by_Group.add(ScheduleMapper.toPageModel(schedule));
             }
         }
@@ -77,24 +73,17 @@ public class ScheduleService {
     }
 
     public List<PageScheduleModel> getSchedulesByTeacher(Long teacher_id) {
-        List<Schedules> schedules_list = getSchedules();
-        schedulesRepository.findAll().forEach(schedules_list::add);
-        List<PageScheduleModel> scheduleModels_by_Teacher = getPageScheduleModels();
-        for (Schedules schedule : schedules_list) {
-            if (Objects.equals(schedule.getTeacherId().getId(), teacher_id)) {
-                scheduleModels_by_Teacher.add(ScheduleMapper.toPageModel(schedule));
+        List<Schedules> scheduleModels = new ArrayList<>();
+        List<PageScheduleModel> scheduleModels_byTeacher = getPageScheduleModels();
+        schedulesRepository.findAll().forEach(scheduleModels::add);
+        for (Schedules schedule : scheduleModels) {
+            if (schedule.getTeacherId().getId() == teacher_id) {
+                scheduleModels_byTeacher.add(ScheduleMapper.toPageModel(schedule));
             }
         }
-        return scheduleModels_by_Teacher;
-    }
-
-    private List<ScheduleModel> getScheduleModels() {
-        return new ArrayList<>();
+        return scheduleModels_byTeacher;
     }
     private List<PageScheduleModel> getPageScheduleModels() {
-        return new ArrayList<>();
-    }
-    private List<Schedules>getSchedules(){
         return new ArrayList<>();
     }
 }

@@ -1,38 +1,52 @@
 <template>
+  <div class="flex center">
+    <p class="cool-text bolder">Edit Discipline</p>
+    <div class="edit-add-wrapper">
 
-  <div class="edit-add-wrapper">
-
-    <div class="edit-add-field-wrapper">
-      <div class="input-text">
-        <p>Name</p>
-        <input type="text" name="name" v-model="discipline.name">
+      <div class="edit-add-field-wrapper">
+        <div class="input-text">
+          <p>Name</p>
+          <input type="text" name="name" v-model="discipline.name">
+        </div>
       </div>
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
+      <CommitButton @click="updateDiscipline"></CommitButton>
+      <BackButton to="/discipline"></BackButton>
     </div>
-    <button @click="updateDiscipline">Add</button>
-    <button>
-      <router-link to="/discipline">Back</router-link>
-    </button>
   </div>
 </template>
 
 <script>
-
+import CommitButton from "../layouts/CommitButton.vue";
+import BackButton from "../layouts/BackButton.vue";
 import DisciplineService from "./DisciplineService";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
   name: "DisciplineEdit",
+  components: {
+    CommitButton,
+    BackButton
+  },
   data: () => ({
     discipline: {
       name: ""
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     updateDiscipline() {
       DisciplineService.updateDiscipline(this.discipline, this.$route.params.id)
-      this.$router.push('/discipline')
+          .then(() => {
+        this.$router.push('/discipline')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
-  }
-}
+  }}
 </script>
 
 <style scoped>

@@ -20,15 +20,12 @@ public class News {
     @Column(name = "title", nullable = false)
     @NotBlank
     private String title;
-    @Column(name = "text")
+    @Column(name = "text", length = 2000)
     @NotBlank
     private String text;
     @Column(name = "date", nullable = false)
     @Past
     private Date date;
-    @Column(name = "img")
-    @NotBlank
-    private String img;
 
     public News() {
 
