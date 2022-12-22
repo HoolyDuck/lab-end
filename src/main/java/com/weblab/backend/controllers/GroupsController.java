@@ -1,6 +1,7 @@
 package com.weblab.backend.controllers;
 
 import com.weblab.backend.models.GroupModel;
+import com.weblab.backend.models.GroupSelectModel;
 import com.weblab.backend.services.GroupService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,10 @@ public class GroupsController {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(e.getMessage());
+    }
+
+    @GetMapping("select")
+    public List<GroupSelectModel> getAllGroupNames() {
+        return groupService.getAllGroupNames();
     }
 }
