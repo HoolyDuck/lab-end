@@ -80,6 +80,7 @@ export default {
 }
 
 .table-data {
+  margin: 0 auto;
   max-height: 16rem;
   overflow-y: scroll;
 }

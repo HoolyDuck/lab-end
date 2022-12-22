@@ -11,12 +11,12 @@
 
       <div class="input-text">
         <p>Course</p>
-        <input type="text" v-model="group.course">
+        <input type="number" max="5" min="1"  v-model="group.course">
       </div>
 
       <div class="input-text">
         <p>Department ID</p>
-        <input type="text" v-model="group.department_id">
+        <input type="number" v-model="group.department_id">
       </div>
 
     </div>
@@ -38,13 +38,13 @@ export default {
   data: () => ({
     group: {
       name: "",
-      course: "",
+      course: 0,
       department_id: 0
     }
   }),
   methods: {
     addGroup() {
-      GroupService.addGroup(this.group).then(this.$router.go('/group'))
+      GroupService.addGroup(this.group).then(this.$router.push('/group'))
     }
   }
 }

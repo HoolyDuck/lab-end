@@ -18,6 +18,10 @@ class TeacherService {
     deleteTeacher(id) {
         return axios.delete(TEACHER_API_URL + '/delete/' + id)
     };
+
+    getAllTeacherSelectModels() {
+        return axios.get(TEACHER_API_URL + '/select')
+    };
 }
 
 export default new TeacherService()

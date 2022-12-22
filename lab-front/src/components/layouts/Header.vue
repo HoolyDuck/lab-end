@@ -7,9 +7,12 @@
     </div>
     <div class="sidebar-menu">
       <i class="fa-solid fa-bars header-link" @click="this.showSidebar=!this.showSidebar"></i>
+     <Transition name="slide-fade">
       <Sidebar @click="this.showSidebar=!this.showSidebar"
                :routelinks="this.routeLinks"
                v-if="this.showSidebar"></Sidebar>
+     </Transition>
+      <div v-if="this.showSidebar" @click="this.showSidebar=!this.showSidebar" class="sidebar-dark"></div>
     </div>
   </header>
 </template>

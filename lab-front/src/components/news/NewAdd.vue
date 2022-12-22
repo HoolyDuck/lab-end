@@ -20,10 +20,7 @@
         <textarea  name="text" v-model="New.text"/>
       </div>
 
-      <div class="input-text">
-        <p>Img</p>
-        <input type="text" name="subject" v-model="New.img">
-      </div>
+
 
     </div>
 
