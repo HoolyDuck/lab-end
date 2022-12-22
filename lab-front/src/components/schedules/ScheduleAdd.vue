@@ -38,7 +38,7 @@
 
       </div>
 
-
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
       <CommitButton @click="addSchedule"></CommitButton>
       <BackButton to="/schedule"></BackButton>
     </div>
@@ -50,6 +50,7 @@
 import ScheduleService from "./ScheduleService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
   name: "ScheduleAdd",
@@ -62,11 +63,19 @@ export default {
       discipline_id: 0,
       teacher_id: 0,
       group_id: 0
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     addSchedule() {
-      ScheduleService.addSchedule(this.schedule).then(this.$router.push('/schedule'))
+      ScheduleService.addSchedule(this.schedule).then(() => {
+        this.$router.push('/schedule')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
 
     }
   }

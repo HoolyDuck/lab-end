@@ -6,12 +6,15 @@
       <option @click="sortByTitle">Title</option>
     </select>
   </div>
+
+
   <div class="news-wrapper">
     <div class="news-box" v-for="New in news">
       <p class="cool-text bolder">{{ New.title }}</p>
       <p class="news-date cool-text">{{ New.date.replace(/T.*/, "") }}</p>
       <p class="news-text">{{ New.text }}</p>
     </div>
+
   </div>
 </template>
 

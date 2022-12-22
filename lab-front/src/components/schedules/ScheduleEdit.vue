@@ -36,6 +36,7 @@
           <input type="text" name="department" v-model="schedule.group_id">
         </div>
       </div>
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
       <CommitButton @click="upgradeSchedule">Edit</CommitButton>
       <BackButton to="/schedule"></BackButton>
     </div>
@@ -47,6 +48,7 @@
 import ScheduleService from "./ScheduleService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
   name: "ScheduleEdit",
@@ -59,11 +61,19 @@ export default {
       discipline_id: 0,
       teacher_id: 0,
       group_id: 0
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     upgradeSchedule() {
-      ScheduleService.updateSchedule(this.schedule, this.$route.params.id).then(this.$router.go('/schedule'))
+      ScheduleService.updateSchedule(this.schedule, this.$route.params.id).then(() => {
+        this.$router.push('/schedule')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   }
 }

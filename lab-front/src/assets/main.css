@@ -51,7 +51,7 @@ a,
 }
 
 .edit-add-field-wrapper {
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
     justify-content: center;
     display: grid;
     grid-template-columns: 1fr;
@@ -159,4 +159,12 @@ main {
     align-items: center;
     gap: .5rem;
     border: 2px solid #3ad59f;
+}
+
+.error-text {
+    color: #ff4040;
+    word-break: break-word;
+    max-width: 8rem;
+    font-size: .6rem;
+    text-align: center;
 }

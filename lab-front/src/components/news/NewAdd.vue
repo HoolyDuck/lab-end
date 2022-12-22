@@ -23,7 +23,7 @@
 
 
     </div>
-
+    <div class="error-text" v-if="showError">{{ errorText }}</div>
     <CommitButton @click="addNew"></CommitButton>
     <BackButton to="/new"></BackButton>
 
@@ -36,6 +36,7 @@
 import NewService from "./NewService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
   name: "NewAdd",
@@ -47,11 +48,19 @@ export default {
       text: "",
       title: "",
       img: ""
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     addNew() {
-      NewService.addNew(this.New).then(this.$router.push('/new'))
+      NewService.addNew(this.New).then(() => {
+        this.$router.push('/new')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   }
 }
