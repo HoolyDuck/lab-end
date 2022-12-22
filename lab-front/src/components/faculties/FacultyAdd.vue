@@ -14,7 +14,7 @@
           <input type="text" name="short_name" v-model="faculty.short_name">
         </div>
       </div>
-
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
       <CommitButton @click="addFaculty"></CommitButton>
       <BackButton to="/faculty"></BackButton>
 
@@ -26,6 +26,7 @@
 import FacultyService from "./FacultyService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
 
@@ -35,12 +36,20 @@ export default {
     faculty: {
       name: "",
       short_name: ""
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     addFaculty() {
-      FacultyService.addFaculty(this.faculty).then(this.$router.push('/faculty'))
-
+      FacultyService.addFaculty(this.faculty)
+          .then(() => {
+            this.$router.push('/faculty')
+          })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   }
 }

@@ -26,6 +26,7 @@
       </div>
 
     </div>
+    <div class="error-text" v-if="showError">{{ errorText }}</div>
     <CommitButton @click="addStudent">Add</CommitButton>
     <BackButton to="/student"></BackButton>
   </div>
@@ -36,6 +37,7 @@
 import StudentService from "./StudentService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
 
@@ -47,11 +49,19 @@ export default {
       email: "",
       phone: "",
       group_id: 0
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     addStudent() {
-      StudentService.addStudent(this.student).then(this.$router.go('/student'))
+      StudentService.addStudent(this.student).then(() => {
+        this.$router.push('/student')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   }
 }

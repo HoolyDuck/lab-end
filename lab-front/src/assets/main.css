@@ -51,7 +51,7 @@ a,
 }
 
 .edit-add-field-wrapper {
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
     justify-content: center;
     display: grid;
     grid-template-columns: 1fr;
@@ -133,6 +133,7 @@ a,
 }
 
 main {
+    min-height: 80vh;
     padding: 1rem;
 }
 
@@ -148,4 +149,22 @@ main {
 .slide-fade-leave-to {
     transform: translateX(20px);
     opacity: 0;
+}
+
+.icon {
+    max-width: 5rem;
+    padding: .7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    border: 2px solid #3ad59f;
+}
+
+.error-text {
+    color: #ff4040;
+    word-break: break-word;
+    max-width: 8rem;
+    font-size: .6rem;
+    text-align: center;
 }

@@ -29,6 +29,7 @@
         <input type="number" name="department" v-model="teacher.department_id">
       </div>
     </div>
+    <div class="error-text" v-if="showError">{{ errorText }}</div>
     <CommitButton @click="addTeacher"></CommitButton>
     <BackButton to="/teacher"></BackButton>
   </div>
@@ -40,6 +41,7 @@
 import TeacherService from "./TeacherService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
   name: "TeacherAdd",
@@ -51,11 +53,19 @@ export default {
       phone: "",
       surname: "",
       department_id: 0
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     addTeacher() {
-      TeacherService.addTeacher(this.teacher).then(this.$router.push('/teacher'))
+      TeacherService.addTeacher(this.teacher).then(() => {
+        this.$router.push('/teacher')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   }
 }

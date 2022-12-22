@@ -6,7 +6,7 @@
     <router-link class="header-link" to="/new/page">News</router-link>
     </div>
     <div class="sidebar-menu">
-      <i class="fa-solid fa-bars header-link" @click="this.showSidebar=!this.showSidebar"></i>
+      <i class="fa-solid fa-bars header-link burger" @click="this.showSidebar=!this.showSidebar"></i>
      <Transition name="slide-fade">
       <Sidebar @click="this.showSidebar=!this.showSidebar"
                :routelinks="this.routeLinks"
@@ -82,6 +82,10 @@ header {
   justify-content: center;
 }
 
+.burger {
+  margin-right: .2rem;
+  margin-top: .3rem;
+}
 
 
 </style>

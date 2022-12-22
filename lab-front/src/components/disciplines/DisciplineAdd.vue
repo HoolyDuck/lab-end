@@ -10,6 +10,7 @@
           <input type="text" name="name" v-model="discipline.name">
         </div>
       </div>
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
       <CommitButton @click="addDiscipline"></CommitButton>
       <BackButton to="/discipline"></BackButton>
     </div>
@@ -22,6 +23,7 @@
 import DisciplineService from "./DisciplineService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
   name: "DisciplineAdd",
@@ -29,11 +31,19 @@ export default {
   data: () => ({
     discipline: {
       name: ""
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     addDiscipline() {
-      DisciplineService.addDiscipline(this.discipline).then( this.$router.push('/discipline'))
+      DisciplineService.addDiscipline(this.discipline).then(() => {
+        this.$router.push('/discipline')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
 
     }
   }

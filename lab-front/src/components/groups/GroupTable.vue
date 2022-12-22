@@ -1,6 +1,10 @@
 <template>
+  <router-link class="icon" to="/group/add">
+    <i class="fa-solid fa-plus"></i>
+    <p class="cool-text bold"> Add</p>
+  </router-link>
   <Table :columns="columns" :rows="groups" entity="group"></Table>
-  <button><router-link to="/group/add">Add</router-link></button>
+
 </template>
 
 <script>

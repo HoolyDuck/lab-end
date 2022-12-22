@@ -17,10 +17,10 @@
 
         <div class="input-text">
           <p>Faculty ID</p>
-          <input v-model="department.faculty_id">
+          <input type="number" v-model="department.faculty_id">
         </div>
       </div>
-
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
       <CommitButton @click="updateDepartment"></CommitButton>
       <BackButton to="/department"></BackButton>
 
@@ -32,6 +32,7 @@
 import DepartmentService from "./DepartmentService";
 import BackButton from "../layouts/BackButton.vue";
 import CommitButton from "../layouts/CommitButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
 
@@ -43,13 +44,24 @@ export default {
       name: "",
       short_name: "",
       faculty_id: 0
-    }
+    },
+    showError: false,
+    errorText: ""
+
   }),
   methods: {
-    updateDepartment() {
-      DepartmentService.updateDepartment(this.department, this.$route.params.id).then(this.$router.push('/department'))
+    updateDepartment: function () {
+      DepartmentService.updateDepartment(this.department, this.$route.params.id)
+          .then(() => {
+            this.$router.push('/department')
+          })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
-  },
+  }
+
 }
 </script>
 

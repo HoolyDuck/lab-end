@@ -21,7 +21,7 @@
         </div>
 
       </div>
-
+      <div class="error-text" v-if="showError">{{ errorText }}</div>
       <CommitButton @click="upgradeNew">Edit</CommitButton>
       <BackButton to="/new"></BackButton>
 
@@ -34,6 +34,7 @@
 import NewService from "./NewService";
 import BackButton from "../layouts/BackButton.vue";
 import CommitButton from "../layouts/CommitButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 
 export default {
@@ -47,10 +48,18 @@ export default {
       text: "",
       img: ""
     },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     upgradeNew() {
-      NewService.updateNew(this.New, this.$route.params.id).then(this.$router.push('/new'))
+      NewService.updateNew(this.New, this.$route.params.id).then(() => {
+        this.$router.push('/new')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   },
 }

@@ -1,11 +1,10 @@
 <template>
+  <router-link class="icon" to="/new/add">
+    <i class="fa-solid fa-plus"></i>
+    <p class="cool-text bold"> Add</p>
+  </router-link>
   <Table :columns="columns" :rows="news" entity="new"></Table>
-  <button>
-    <router-link to="/new/add">Add</router-link>
-  </button>
-  <button>
-    <router-link to="/">Back</router-link>
-  </button>
+
 </template>
 
 <script>

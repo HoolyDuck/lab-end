@@ -20,6 +20,7 @@
       </div>
 
     </div>
+    <div class="error-text" v-if="showError">{{ errorText }}</div>
     <CommitButton @click="addGroup"></CommitButton>
     <BackButton to="/group"></BackButton>
   </div>
@@ -30,6 +31,7 @@
 import GroupService from "./GroupService";
 import CommitButton from "../layouts/CommitButton.vue";
 import BackButton from "../layouts/BackButton.vue";
+import crudErrorHandler from "../../error_handlers/crudErrorHandler";
 
 export default {
 
@@ -40,11 +42,19 @@ export default {
       name: "",
       course: 0,
       department_id: 0
-    }
+    },
+    showError: false,
+    errorText: ""
   }),
   methods: {
     addGroup() {
-      GroupService.addGroup(this.group).then(this.$router.push('/group'))
+      GroupService.addGroup(this.group).then(() => {
+        this.$router.push('/group')
+      })
+          .catch(err => {
+            this.showError = true
+            this.errorText = crudErrorHandler.catchError(err)
+          });
     }
   }
 }
