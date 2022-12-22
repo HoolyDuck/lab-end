@@ -4,6 +4,7 @@ package com.weblab.backend.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -28,5 +29,6 @@ public class DepartmentModel {
 
     @JsonProperty("faculty_id")
     @NotNull
+    @Positive
     private Long facultyId;
 }
