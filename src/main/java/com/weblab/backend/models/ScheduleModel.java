@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,12 +28,15 @@ public class ScheduleModel {
     private String time;
     @JsonProperty("discipline_id")
     @NotNull
+    @Positive
     private Long disciplineId;
     @JsonProperty("group_id")
     @NotNull
+    @Positive
     private Long groupId;
     @JsonProperty("teacher_id")
     @NotNull
+    @Positive
     private Long teacherId;
 
 }

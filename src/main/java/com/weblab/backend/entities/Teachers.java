@@ -1,11 +1,11 @@
 package com.weblab.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.*;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "teachers")
@@ -37,6 +37,9 @@ public class Teachers {
     @JoinColumn(name = "departmentid", referencedColumnName = "id")
     @NotNull
     private Departments department;
+    @JsonIgnore
+    @OneToMany(mappedBy = "teacherId", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    Set<Schedules> schedules;
 
     public Teachers() {
 

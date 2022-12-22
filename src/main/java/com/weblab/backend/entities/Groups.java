@@ -1,10 +1,8 @@
 package com.weblab.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import java.util.Set;
@@ -34,9 +32,12 @@ public class Groups {
     @NotNull
     private Departments department;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "group", orphanRemoval = true)
     Set<Students> students;
-
+    @JsonIgnore
+    @OneToMany(mappedBy = "groupId", cascade = CascadeType.REMOVE, orphanRemoval = true)
+    Set<Schedules> schedules;
     public Groups() {
 
     }

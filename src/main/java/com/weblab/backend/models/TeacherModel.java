@@ -1,10 +1,7 @@
 package com.weblab.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 @Getter
@@ -31,5 +28,6 @@ public class TeacherModel {
     private String surname;
     @JsonProperty("department_id")
     @NotNull
+    @Positive
     private Long department;
 }
