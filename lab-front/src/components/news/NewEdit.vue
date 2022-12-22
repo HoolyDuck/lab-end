@@ -20,10 +20,6 @@
           <textarea name="text" v-model="New.text"/>
         </div>
 
-        <div class="input-text">
-          <p>Title</p>
-          <input type="text" name="subject" v-model="New.img">
-        </div>
       </div>
 
       <CommitButton @click="upgradeNew">Edit</CommitButton>
@@ -39,6 +35,7 @@ import NewService from "./NewService";
 import BackButton from "../layouts/BackButton.vue";
 import CommitButton from "../layouts/CommitButton.vue";
 
+
 export default {
   components: {CommitButton, BackButton},
 
@@ -46,15 +43,16 @@ export default {
   data: () => ({
     New: {
       date: "",
+      title: "",
       text: "",
       img: ""
-    }
+    },
   }),
   methods: {
     upgradeNew() {
       NewService.updateNew(this.New, this.$route.params.id).then(this.$router.push('/new'))
     }
-  }
+  },
 }
 </script>
 

@@ -3,6 +3,7 @@ package com.weblab.backend.services;
 import com.weblab.backend.entities.Teachers;
 import com.weblab.backend.mappers.TeacherMapper;
 import com.weblab.backend.models.TeacherModel;
+import com.weblab.backend.models.TeacherSelectModel;
 import com.weblab.backend.repositories.TeachersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,4 +50,16 @@ public class TeacherService {
     public void delete_teacher(Long id) {
         teachersRepository.deleteById(id);
     }
+
+
+    public List<TeacherSelectModel> getAllTeacherNames() {
+        List<TeacherSelectModel> teacherSelectModels = new ArrayList<>();
+
+        teachersRepository.findAll().forEach(teachers -> teacherSelectModels.add(TeacherSelectModel.builder()
+                .id(teachers.getId())
+                .nameSurname(teachers.getName() + " " + teachers.getSurname())
+                .build()));
+        return teacherSelectModels;
+    }
+
 }

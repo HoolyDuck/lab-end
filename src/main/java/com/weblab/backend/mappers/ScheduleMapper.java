@@ -53,6 +53,7 @@ public class ScheduleMapper {
                 .classroom(schedules.getClassroom())
                 .name(schedules.getName())
                 .time(schedules.getTime())
+                .groupName(schedules.getGroupId().getName())
                 .disciplineName(schedules.getDisciplineId().getName())
                 .teacherName(schedules.getTeacherId().getName())
                 .teacherSurname(schedules.getTeacherId().getSurname())

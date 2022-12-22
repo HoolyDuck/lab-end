@@ -26,7 +26,7 @@
 
       <div class="input-text">
         <p>Department_Id</p>
-        <input type="text" name="department" v-model="teacher.department_id">
+        <input type="number" name="department" v-model="teacher.department_id">
       </div>
     </div>
     <CommitButton @click="addTeacher"></CommitButton>
@@ -55,7 +55,7 @@ export default {
   }),
   methods: {
     addTeacher() {
-      TeacherService.addTeacher(this.teacher).then(this.$router.go('/teacher'))
+      TeacherService.addTeacher(this.teacher).then(this.$router.push('/teacher'))
     }
   }
 }

@@ -24,7 +24,7 @@ public class Groups {
     @NotBlank
     private String name;
     @Column(name = "course", nullable = false)
-    @NotBlank
+    @NotNull
     @Min(1)
     @Max(5)
     private Long course;
