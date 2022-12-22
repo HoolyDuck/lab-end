@@ -150,3 +150,13 @@ main {
     transform: translateX(20px);
     opacity: 0;
 }
+
+.icon {
+    max-width: 5rem;
+    padding: .7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    border: 2px solid #3ad59f;
+}

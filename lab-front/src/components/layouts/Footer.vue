@@ -33,7 +33,7 @@ footer {
 
   bottom: 0;
   width: 100vw;
-  min-height: 15vh;
+  min-height: 11vh;
   background: linear-gradient(to bottom, #1c1c1c, var(--color-background));
   display: flex;
   justify-content: center;
