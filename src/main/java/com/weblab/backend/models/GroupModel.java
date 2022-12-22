@@ -22,7 +22,6 @@ public class GroupModel {
     @JsonProperty("course")
     @Min(1)
     @Max(5)
-    @NotBlank
     private Long course;
 
     @JsonProperty("name")

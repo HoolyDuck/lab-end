@@ -24,7 +24,6 @@ public class News {
     @NotBlank
     private String text;
     @Column(name = "date", nullable = false)
-    @NotBlank
     @Past
     private Date date;
     @Column(name = "img")

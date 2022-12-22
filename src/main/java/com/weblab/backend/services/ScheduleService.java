@@ -65,35 +65,36 @@ public class ScheduleService {
     }
 
     public List<PageScheduleModel> getSchedulesByGroup(Long group_id) {
-        List<ScheduleModel> scheduleModels = getScheduleModels();
-        List<PageScheduleModel> scheduleModels_by_Group = getPageScheduleModels();
-        schedulesRepository.findAll().forEach(schedules ->
-                scheduleModels.add(ScheduleMapper.toModel(schedules)));
-        for (ScheduleModel schedule : scheduleModels) {
-            if (Objects.equals(schedule.getGroupId(), group_id)) {
-                scheduleModels_by_Group.add(ScheduleMapper.toPageModel(ScheduleMapper.toEntity(schedule)));
+        List<Schedules> schedules_list = getSchedules();
+        schedulesRepository.findAll().forEach(schedules_list::add);
+        List<PageScheduleModel> scheduleModels_by_Group = getPageScheduleModels();;
+        for (Schedules schedule : schedules_list) {
+            if (Objects.equals(schedule.getGroupId().getId(), group_id)) {
+                scheduleModels_by_Group.add(ScheduleMapper.toPageModel(schedule));
             }
         }
         return scheduleModels_by_Group;
     }
 
     public List<PageScheduleModel> getSchedulesByTeacher(Long teacher_id) {
-        List<ScheduleModel> scheduleModels = getScheduleModels();
-        List<PageScheduleModel> scheduleModels_byTeacher = getPageScheduleModels();
-        schedulesRepository.findAll().forEach(schedules ->
-                scheduleModels.add(ScheduleMapper.toModel(schedules)));
-        for (ScheduleModel schedule : scheduleModels) {
-            if (Objects.equals(schedule.getTeacherId(), teacher_id)) {
-                scheduleModels_byTeacher.add(ScheduleMapper.toPageModel(ScheduleMapper.toEntity(schedule)));
+        List<Schedules> schedules_list = getSchedules();
+        schedulesRepository.findAll().forEach(schedules_list::add);
+        List<PageScheduleModel> scheduleModels_by_Teacher = getPageScheduleModels();
+        for (Schedules schedule : schedules_list) {
+            if (Objects.equals(schedule.getTeacherId().getId(), teacher_id)) {
+                scheduleModels_by_Teacher.add(ScheduleMapper.toPageModel(schedule));
             }
         }
-        return scheduleModels_byTeacher;
+        return scheduleModels_by_Teacher;
     }
 
     private List<ScheduleModel> getScheduleModels() {
         return new ArrayList<>();
     }
     private List<PageScheduleModel> getPageScheduleModels() {
+        return new ArrayList<>();
+    }
+    private List<Schedules>getSchedules(){
         return new ArrayList<>();
     }
 }
