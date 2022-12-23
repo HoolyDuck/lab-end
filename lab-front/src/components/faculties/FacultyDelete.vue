@@ -1,20 +1,35 @@
 <template>
-  <p>Are you sure?</p>
-  <button @click="deleteFaculty">Yes</button>
-  <button>
-    <router-link to="/faculty">No</router-link>
-  </button>
+  <div class="flex center">
+    <p class="cool-text bolder">Delete Faculty</p>
+    <div class="edit-add-wrapper">
+      <div class="edit-add-field-wrapper">
+        <p>Are you sure?</p>
+      </div>
+      <p class="error-text" v-if="showError">Something went wrong...</p>
+      <button class="wide-button" @click="deleteFaculty">Yes</button>
+      <BackButton to="/faculty"></BackButton>
+    </div>
+  </div>
 </template>
 
 <script>
 import FacultyService from "./FacultyService";
+import BackButton from "../layouts/BackButton.vue";
 
 export default {
   name: "FacultyDelete",
+  components: {BackButton},
+  data: () => ({
+    showError: false
+  }),
   methods: {
     deleteFaculty() {
       FacultyService.deleteFaculty(this.$route.params.id)
-      this.$router.push('/faculty')
+          .then(() => {
+            this.$router.push('/department')
+          }).catch(err => {
+        this.showError = true
+      });
     }
   },
 }
